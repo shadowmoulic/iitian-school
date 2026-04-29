@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Admin Dashboard | IITian School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--dark);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .admin-sidebar {
+            width: 280px;
+            background: var(--dark);
+            color: #fff;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .admin-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .admin-logo span {
+            color: var(--primary);
+        }
+
+        .admin-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex-grow: 1;
+        }
+
+        .admin-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            color: #94a3b8;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .admin-nav-item:hover, .admin-nav-item.active {
+            background: #1e293b;
+            color: #fff;
+        }
+
+        .admin-nav-item.active i {
+            color: var(--primary);
+        }
+
+        .admin-main {
+            flex-grow: 1;
+            padding: 3rem;
+            overflow-y: auto;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .admin-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .table-wrap {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1.2rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            font-weight: 700;
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge-success { background: #dcfce7; color: #15803d; }
+        .badge-warning { background: #fef9c3; color: #a16207; }
+
+        @media (max-width: 1024px) {
+            body {
+                flex-direction: column;
+            }
+            .admin-sidebar {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-sidebar">
+        <div class="admin-logo">
+            <i data-lucide="graduation-cap"></i> IITian<span>school</span>
+        </div>
+        <div class="admin-nav">
+            <a href="#" class="admin-nav-item active"><i data-lucide="layout-dashboard"></i> Overview</a>
+            <a href="#" class="admin-nav-item"><i data-lucide="users"></i> Students</a>
+            <a href="#" class="admin-nav-item"><i data-lucide="book-open"></i> Courses</a>
+            <a href="#" class="admin-nav-item"><i data-lucide="award"></i> Results</a>
+            <a href="#" class="admin-nav-item"><i data-lucide="settings"></i> Settings</a>
+        </div>
+    </div>
+    
+    <div class="admin-main">
+        <div class="admin-header">
+            <div>
+                <h1>LMS Administration</h1>
+                <p style="color: var(--gray); margin-top: 0.5rem;">Secure monitoring and reporting overview.</p>
+            </div>
+            <a href="../index.html" style="padding: 0.75rem 1.5rem; border: 1px solid var(--gray); border-radius: 12px; text-decoration: none; color: var(--dark); font-weight: 600;">Back to Site</a>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon" style="background: #e0e7ff; color: #6366f1;"><i data-lucide="users"></i></div>
+                <div>
+                    <span style="color: var(--gray); font-size: 0.9rem;">Total Students</span>
+                    <h2 style="margin-top: 0.2rem; font-size: 2rem;">1,248</h2>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background: #fef3c7; color: #d97706;"><i data-lucide="book-open"></i></div>
+                <div>
+                    <span style="color: var(--gray); font-size: 0.9rem;">Active Batches</span>
+                    <h2 style="margin-top: 0.2rem; font-size: 2rem;">6</h2>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background: #dcfce7; color: #16a34a;"><i data-lucide="award"></i></div>
+                <div>
+                    <span style="color: var(--gray); font-size: 0.9rem;">Mock Tests Given</span>
+                    <h2 style="margin-top: 0.2rem; font-size: 2rem;">4,812</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Recent Test Performance</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Target</th>
+                        <th>Score</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pragya Choudhary</td>
+                        <td>JEE Advanced</td>
+                        <td><strong>10 / 10</strong></td>
+                        <td><span class="badge badge-success">Top Rank</span></td>
+                    </tr>
+                    <tr>
+                        <td>Abhijit Manu</td>
+                        <td>JEE Mains</td>
+                        <td><strong>8 / 10</strong></td>
+                        <td><span class="badge badge-success">Passed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Somsubhra Mukherjee</td>
+                        <td>NEET</td>
+                        <td><strong>6 / 10</strong></td>
+                        <td><span class="badge badge-warning">Review</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

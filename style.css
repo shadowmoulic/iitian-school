@@ -100,7 +100,7 @@ body {
 }
 
 section {
-    padding: 100px 0;
+    padding: 3rem 0;
 }
 
 /* Typography */
@@ -1192,4 +1192,91 @@ footer {
     font-size: 4rem;
     color: #10b981;
     margin-bottom: 1.5rem;
+}
+
+/* Slider Section for Results */
+.slider-section {
+    padding: 6rem 0;
+    background: radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.05), transparent);
+    overflow: hidden;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 2rem 0;
+}
+
+.slider-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.4s ease;
+}
+
+.slider-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    min-width: 300px;
+    flex: 0 0 auto;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.05);
+}
+
+.slider-card img {
+    width: 280px;
+    height: 280px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 16px;
+}
+
+.slider-card h3 {
+    margin: 12px 0 6px 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.slider-card p {
+    margin: 0;
+    font-size: 16px;
+    color: #64748b;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #6366f1;
+    color: #fff;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+.slider-btn:hover {
+    background: #818cf8;
+}
+
+@media (max-width: 768px) {
+    .slider-card {
+        min-width: 220px;
+    }
+
+    .slider-card img {
+        width: 140px;
+        height: 140px;
+    }
 }

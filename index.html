@@ -9,6 +9,168 @@
     <link rel="stylesheet" href="https://demo-work-alpha.vercel.app/iitianschool/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Slider Section for Results */
+        .slider-section {
+            padding: 6rem 0;
+            background: radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.05), transparent);
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.4s ease;
+            width: max-content;
+        }
+
+        .slider-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            width: 300px;
+            flex: 0 0 300px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.05);
+            box-sizing: border-box;
+        }
+
+        .slider-card img {
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 16px;
+        }
+
+        .slider-card h3 {
+            margin: 12px 0 6px 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .slider-card p {
+            margin: 0;
+            font-size: 16px;
+            color: #64748b;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #6366f1;
+            color: #fff;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .slider-btn.prev {
+            left: 10px;
+        }
+
+        .slider-btn.next {
+            right: 10px;
+        }
+
+        .slider-btn:hover {
+            background: #818cf8;
+        }
+
+        @media (max-width: 768px) {
+            .slider-card {
+                width: 240px;
+                flex: 0 0 240px;
+                padding: 20px;
+            }
+
+            .slider-card img {
+                height: 180px;
+            }
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            cursor: pointer;
+            z-index: 9999;
+            text-decoration: none;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #128C7E;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-popup {
+            position: fixed;
+            bottom: 6.5rem;
+            right: 2rem;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 9998;
+            border: 1px solid #e2e8f0;
+            animation: bounceIn 1s ease 2s both;
+            max-width: 250px;
+        }
+
+        .whatsapp-popup::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: white transparent;
+            display: block;
+            width: 0;
+        }
+
+        .whatsapp-popup p {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+            60% { opacity: 1; transform: translateY(-5px) scale(1.05); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+    </style>
 </head>
 
 <body>
@@ -82,6 +244,53 @@
         </div>
     </section>
 
+    <!-- Results Section -->
+    <section id="results" class="slider-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="sub-header">Our Success Stories</span>
+                <h2>Outstanding Results</h2>
+                <p>Our students consistently secure top ranks in JEE & NEET.</p>
+            </div>
+        </div>
+        <div class="slider-container">
+            <button class="slider-btn prev">&lt;</button>
+            <div class="slider-track">
+                <div class="slider-card">
+                    <img src="./IITian's School_files/pragya.jpg" alt="Pragya Choudhary">
+                    <h3>Pragya Choudhary</h3>
+                    <p>IIT Kharagpur</p>
+                </div>
+                <div class="slider-card">
+                    <img src="./IITian's School_files/abhijit.jpg" alt="Abhijit Manu">
+                    <h3>Abhijit Manu</h3>
+                    <p>IIT Bhuvneshwar</p>
+                </div>
+                <div class="slider-card">
+                    <img src="./IITian's School_files/aditya.jpg" alt="Aditya Behera">
+                    <h3>Aditya Behera</h3>
+                    <p>NIT Rourkela</p>
+                </div>
+                <div class="slider-card">
+                    <img src="./IITian's School_files/ayiman.png" alt="Ayiman Mohanty">
+                    <h3>Ayiman Mohanty</h3>
+                    <p>NIT Manglore</p>
+                </div>
+                <div class="slider-card">
+                    <img src="./IITian's School_files/moon.jpg" alt="Somsubhra Mukherjee">
+                    <h3>Somsubhra Mukherjee</h3>
+                    <p>IIT Kharagpur</p>
+                </div>
+                <div class="slider-card">
+                    <img src="./IITian's School_files/sun.jpeg" alt="Sourasish Mukherjee">
+                    <h3>Sourasish Mukherjee</h3>
+                    <p>IIT Kharagpur</p>
+                </div>
+            </div>
+            <button class="slider-btn next">&gt;</button>
+        </div>
+    </section>
+
     <!-- Why Us Section -->
     <section id="about" class="why-us">
         <div class="container">
@@ -121,7 +330,7 @@
                 <!-- Course Card 1 -->
                 <div class="course-card glass" data-stagger>
                     <div class="course-img">
-                        <img src="https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?w=800&auto=format&fit=crop"
+                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&auto=format&fit=crop"
                             alt="Dhyeya Batch 11th">
                         <div class="course-tag">89% OFF</div>
                     </div>
@@ -141,7 +350,7 @@
                 <!-- Course 2 -->
                 <div class="course-card glass" data-stagger>
                     <div class="course-img">
-                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&auto=format&fit=crop"
+                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&auto=format&fit=crop"
                             alt="Foundation 2028">
                         <div class="course-tag">79% OFF</div>
                     </div>
@@ -161,7 +370,7 @@
                 <!-- Course 3 -->
                 <div class="course-card glass" data-stagger>
                     <div class="course-img">
-                        <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?w=800&auto=format&fit=crop"
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop"
                             alt="NEET 2028">
                         <div class="course-tag">77% OFF</div>
                     </div>
@@ -181,7 +390,7 @@
                 <!-- Course 4 -->
                 <div class="course-card glass" data-stagger>
                     <div class="course-img">
-                        <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&auto=format&fit=crop"
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&auto=format&fit=crop"
                             alt="Foundation 2028 9th">
                         <div class="course-tag">87% OFF</div>
                     </div>
@@ -201,7 +410,7 @@
                 <!-- Course 5 -->
                 <div class="course-card glass" data-stagger>
                     <div class="course-img">
-                        <img src="https://images.unsplash.com/photo-1635350736475-c8cef4b21906?w=800&auto=format&fit=crop"
+                        <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800&auto=format&fit=crop"
                             alt="JEE 2028">
                         <div class="course-tag">77% OFF</div>
                     </div>
@@ -464,8 +673,86 @@
 
     <script src="https://demo-work-alpha.vercel.app/iitianschool/script.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.querySelector('.slider-track');
+            const container = document.querySelector('.slider-container');
+            if (!track || !container) return;
+
+            const prevBtn = container.querySelector('.slider-btn.prev');
+            const nextBtn = container.querySelector('.slider-btn.next');
+
+            let slides = Array.from(track.children);
+            const originalCount = slides.length;
+
+            // Clone slides once to the end to allow seamless forward sliding
+            slides.forEach((s) => track.appendChild(s.cloneNode(true)));
+
+            let index = 0; 
+            let slideWidth = 0;
+            let gap = parseFloat(getComputedStyle(track).gap) || 30;
+            let isTransitioning = false;
+
+            function computeSizes() {
+                const card = track.querySelector('.slider-card');
+                if (!card) return;
+                gap = parseFloat(getComputedStyle(track).gap) || 30;
+                slideWidth = card.getBoundingClientRect().width + gap;
+                track.style.transition = 'none';
+                track.style.transform = `translateX(${-index * slideWidth}px)`;
+            }
+
+            function setTranslate(px, withTransition = true) {
+                track.style.transition = withTransition ? 'transform 0.4s ease' : 'none';
+                track.style.transform = `translateX(${px}px)`;
+            }
+
+            function next() {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                index += 1;
+                setTranslate(-index * slideWidth, true);
+            }
+
+            function prev() {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                index -= 1;
+                setTranslate(-index * slideWidth, true);
+            }
+
+            track.addEventListener('transitionend', () => {
+                isTransitioning = false;
+                if (index >= originalCount) {
+                    index = 0;
+                    setTranslate(0, false);
+                } else if (index < 0) {
+                    index = originalCount - 1;
+                    setTranslate(-index * slideWidth, false);
+                }
+            });
+
+            nextBtn?.addEventListener('click', (e) => { e.preventDefault(); next(); });
+            prevBtn?.addEventListener('click', (e) => { e.preventDefault(); prev(); });
+
+            let autoPlayInterval = setInterval(next, 3000);
+
+            container.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+            container.addEventListener('mouseleave', () => autoPlayInterval = setInterval(next, 3000));
+
+            window.addEventListener('resize', computeSizes);
+            computeSizes();
+        });
+        
         lucide.createIcons();
     </script>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-popup">
+        <p><i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.2rem;"></i> Need Help? Talk to Bhaskar Sir!</p>
+    </div>
+    <a href="https://wa.me/919692792825?text=Hello%20Bhaskar%20Sir%2C%20I%27m%20interested%20in%20enrolling%20for%20the%20courses%20at%20IITian%20School.%20Please%20guide%20me." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 
 </html>

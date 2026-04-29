@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://iitianschool.in/ -->
+<html class="scroll-smooth" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+  
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>IITian's School</title>
+
+  <!-- Fonts & icons -->
+  <link href="./IITian&#39;s School_files/css2" rel="stylesheet">
+  <link href="./IITian&#39;s School_files/icon" rel="stylesheet">
+  <link rel="stylesheet" href="./IITian&#39;s School_files/style.css">
+  <!-- External Stylesheet -->
+
+<style>
+    .toaster-title{font-weight:700}
+    .toaster-message{-ms-word-wrap:break-word;word-wrap:break-word}
+    .toaster-message a,.toaster-message label{color:#FFF}
+    .toaster-message a:hover{color:#CCC;text-decoration:none}
+    .toaster-close-button{position:relative;right:-.3em;top:-.3em;float:right;font-size:20px;font-weight:700;color:#FFF;-webkit-text-shadow:0 1px 0 #fff;text-shadow:0 1px 0 #fff;opacity:1;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);filter:alpha(opacity=80);line-height:1}
+    .toaster-close-button:focus,.toaster-close-button:hover{color:#000;text-decoration:none;cursor:pointer;opacity:1;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40);filter:alpha(opacity=40)}.rtl .toaster-close-button{left:-.3em;float:left;right:.3em}button.toaster-close-button{padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none}
+    .toaster-top-center{top:0;right:0;width:100%}
+    .toaster-bottom-center{bottom:0;right:0;width:100%}
+    .toaster-top-full-width{top:0;right:0;width:100%}
+    .toaster-bottom-full-width{bottom:0;right:0;width:100%}
+    .toaster-top-left{top:12px;left:12px}
+    .toaster-top-right{top:12px;right:12px}
+    .toaster-bottom-right{right:12px;bottom:12px}
+    .toaster-bottom-left{bottom:12px;left:12px}
+    #toaster-container{position:fixed;z-index:999999;pointer-events:none}
+    #toaster-container *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+    #toaster-container>div{position:relative;pointer-events:auto;overflow:hidden;margin:0 0 6px;padding:15px 15px 15px 50px;width:300px;-moz-border-radius:3px;-webkit-border-radius:3px 3px 3px 3px;border-radius:3px;background-position:15px center;background-repeat:no-repeat;-moz-box-shadow:0 0 12px #999;-webkit-box-shadow:0 0 12px #999;box-shadow:0 0 12px #999;color:#FFF;opacity:1;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);filter:alpha(opacity=100)}#toaster-container>div.rtl{direction:rtl;padding:15px 50px 15px 15px;background-position:right 15px center}#toaster-container>div:hover{-moz-box-shadow:0 0 12px #000;-webkit-box-shadow:0 0 12px #000;box-shadow:0 0 12px #000;opacity:1;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);filter:alpha(opacity=100);cursor:default}
+    #toaster-container>.toaster-info{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVEhLtZa9SgNBEMc9sUxxRcoUKSzSWIhXpFMhhYWFhaBg4yPYiWCXZxBLERsLRS3EQkEfwCKdjWJAwSKCgoKCcudv4O5YLrt7EzgXhiU3/4+b2ckmwVjJSpKkQ6wAi4gwhT+z3wRBcEz0yjSseUTrcRyfsHsXmD0AmbHOC9Ii8VImnuXBPglHpQ5wwSVM7sNnTG7Za4JwDdCjxyAiH3nyA2mtaTJufiDZ5dCaqlItILh1NHatfN5skvjx9Z38m69CgzuXmZgVrPIGE763Jx9qKsRozWYw6xOHdER+nn2KkO+Bb+UV5CBN6WC6QtBgbRVozrahAbmm6HtUsgtPC19tFdxXZYBOfkbmFJ1VaHA1VAHjd0pp70oTZzvR+EVrx2Ygfdsq6eu55BHYR8hlcki+n+kERUFG8BrA0BwjeAv2M8WLQBtcy+SD6fNsmnB3AlBLrgTtVW1c2QN4bVWLATaIS60J2Du5y1TiJgjSBvFVZgTmwCU+dAZFoPxGEEs8nyHC9Bwe2GvEJv2WXZb0vjdyFT4Cxk3e/kIqlOGoVLwwPevpYHT+00T+hWwXDf4AJAOUqWcDhbwAAAAASUVORK5CYII=)!important}#toaster-container>.toaster-error{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=)!important}
+    #toaster-container>.toaster-success{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVEhLY2AYBfQMgf///3P8+/evAIgvA/FsIF+BavYDDWMBGroaSMMBiE8VC7AZDrIFaMFnii3AZTjUgsUUWUDA8OdAH6iQbQEhw4HyGsPEcKBXBIC4ARhex4G4BsjmweU1soIFaGg/WtoFZRIZdEvIMhxkCCjXIVsATV6gFGACs4Rsw0EGgIIH3QJYJgHSARQZDrWAB+jawzgs+Q2UO49D7jnRSRGoEFRILcdmEMWGI0cm0JJ2QpYA1RDvcmzJEWhABhD/pqrL0S0CWuABKgnRki9lLseS7g2AlqwHWQSKH4oKLrILpRGhEQCw2LiRUIa4lwAAAABJRU5ErkJggg==)!important}#toaster-container>.toaster-warning{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVEhL5ZSvTsNQFMbXZGICMYGYmJhAQIJAICYQPAACiSDB8AiICQQJT4CqQEwgJvYASAQCiZiYmJhAIBATCARJy+9rTsldd8sKu1M0+dLb057v6/lbq/2rK0mS/TRNj9cWNAKPYIJII7gIxCcQ51cvqID+GIEX8ASG4B1bK5gIZFeQfoJdEXOfgX4QAQg7kH2A65yQ87lyxb27sggkAzAuFhbbg1K2kgCkB1bVwyIR9m2L7PRPIhDUIXgGtyKw575yz3lTNs6X4JXnjV+LKM/m3MydnTbtOKIjtz6VhCBq4vSm3ncdrD2lk0VgUXSVKjVDJXJzijW1RQdsU7F77He8u68koNZTz8Oz5yGa6J3H3lZ0xYgXBK2QymlWWA+RWnYhskLBv2vmE+hBMCtbA7KX5drWyRT/2JsqZ2IvfB9Y4bWDNMFbJRFmC9E74SoS0CqulwjkC0+5bpcV1CZ8NMej4pjy0U+doDQsGyo1hzVJttIjhQ7GnBtRFN1UarUlH8F3xict+HY07rEzoUGPlWcjRFRr4/gChZgc3ZL2d8oAAAAASUVORK5CYII=)!important}
+    #toaster-container.toaster-bottom-center>div,#toaster-container.toaster-top-center>div{width:300px;margin-left:auto;margin-right:auto}#toaster-container.toaster-bottom-full-width>div,#toaster-container.toaster-top-full-width>div{width:96%;margin-left:auto;margin-right:auto}.toaster{background-color:#030303}
+    .toaster-success{background-color:#51A351}
+    .toaster-loader{background-color:gray}
+    .toaster-loader{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVEhLY2AYBfQMgf///3P8+/evAIgvA/FsIF+BavYDDWMBGroaSMMBiE8VC7AZDrIFaMFnii3AZTjUgsUUWUDA8OdAH6iQbQEhw4HyGsPEcKBXBIC4ARhex4G4BsjmweU1soIFaGg/WtoFZRIZdEvIMhxkCCjXIVsATV6gFGACs4Rsw0EGgIIH3QJYJgHSARQZDrWAB+jawzgs+Q2UO49D7jnRSRGoEFRILcdmEMWGI0cm0JJ2QpYA1RDvcmzJEWhABhD/pqrL0S0CWuABKgnRki9lLseS7g2AlqwHWQSKH4oKLrILpRGhEQCw2LiRUIa4lwAAAABJRU5ErkJggg==)!important}#toaster-container>.toaster-warning{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVEhL5ZSvTsNQFMbXZGICMYGYmJhAQIJAICYQPAACiSDB8AiICQQJT4CqQEwgJvYASAQCiZiYmJhAIBATCARJy+9rTsldd8sKu1M0+dLb057v6/lbq/2rK0mS/TRNj9cWNAKPYIJII7gIxCcQ51cvqID+GIEX8ASG4B1bK5gIZFeQfoJdEXOfgX4QAQg7kH2A65yQ87lyxb27sggkAzAuFhbbg1K2kgCkB1bVwyIR9m2L7PRPIhDUIXgGtyKw575yz3lTNs6X4JXnjV+LKM/m3MydnTbtOKIjtz6VhCBq4vSm3ncdrD2lk0VgUXSVKjVDJXJzijW1RQdsU7F77He8u68koNZTz8Oz5yGa6J3H3lZ0xYgXBK2QymlWWA+RWnYhskLBv2vmE+hBMCtbA7KX5drWyRT/2JsqZ2IvfB9Y4bWDNMFbJRFmC9E74SoS0CqulwjkC0+5bpcV1CZ8NMej4pjy0U+doDQsGyo1hzVJttIjhQ7GnBtRFN1UarUlH8F3xict+HY07rEzoUGPlWcjRFRr4/gChZgc3ZL2d8oAAAAASUVORK5CYII=)!important}
+    .toaster-error{background-color:#BD362F}
+    .toaster-info{background-color:#2F96B4}
+    .toaster-warning{background-color:#F89406}
+    .toaster-progress{position:absolute;left:0;bottom:0;height:4px;background-color:#000;opacity:.4;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40);filter:alpha(opacity=40)}@media all and (max-width:240px){#toaster-container>div{padding:8px 8px 8px 50px;width:11em}#toaster-container>div.rtl{padding:8px 50px 8px 8px}#toaster-container .toaster-close-button{right:-.2em;top:-.2em}#toaster-container .rtl .toaster-close-button{left:-.2em;right:.2em}}@media all and (min-width:241px) and (max-width:480px){#toaster-container>div{padding:8px 8px 8px 50px;width:18em}#toaster-container>div.rtl{padding:8px 50px 8px 8px}#toaster-container .toaster-close-button{right:-.2em;top:-.2em}#toaster-container .rtl .toaster-close-button{left:-.2em;right:.2em}}@media all and (min-width:481px) and (max-width:768px){#toaster-container>div{padding:15px 15px 15px 50px;width:25em}#toaster-container>div.rtl{padding:15px 50px 15px 15px}}</style><style data-emotion="css" data-s=""></style><style>.keyword-info-container{box-sizing:border-box;width:92%;margin-bottom:20px;font-size:12px;border-bottom:1px solid #dee1e5;border:1px solid #f1f3f4;margin:14px 16px;border-radius:2px;padding:20px;position:relative;-webkit-font-smoothing:antialiased}body[data-dt="1"] .keyword-info-container,html[dark] .keyword-info-container{border-color:#3d4042}.keyword-info-container .title{color:#26282d;font-size:16px;font-weight:bold}.keyword-info-container .tabs{list-style:none;display:flex;justify-content:flex-start;border-bottom:1px solid #dee1e5;margin-top:-10px;padding:0px 16px;align-items:center}.keyword-info-container .tabs.tip{border-color:#f8b199 !important;border-radius:2px;border:1px solid}.keyword-info-container .tabs li{padding:8px;padding-left:0;color:#000;cursor:pointer;font-size:12px}.keyword-info-container .tabs li.small{font-size:10px}.keyword-info-container .tabs li:last-child{overflow:hidden}.keyword-info-container .tabs li.active{color:#4285f4;margin:20px 0}table.keyword-info-table{border-collapse:collapse;width:100%;color:#000;font-size:12px;position:relative}.keyword-info-table thead{height:50px}.keyword-info-table th{padding:10px;padding-left:0;font-weight:bold;color:#000;font-size:12px}.keyword-info-table th:first-child{padding-left:16px}.keyword-info-table th:last-child{padding-right:0px}.keyword-info-table td{border-bottom:1px solid #f1f3f4;padding:10px;padding-left:0;height:50px;box-sizing:border-box}.keyword-info-table tr{border-bottom:1px solid #f1f3f4}body[data-dt="1"] .keyword-info-table td,html[dark] .keyword-info-table td{border-color:#3d4042}body[data-dt="1"] .keyword-info-table tr,html[dark] .keyword-info-table tr{border-color:#3d4042}body[data-dt="1"] .keyword-info-table tfoot tr,body[data-dt="1"] .keyword-info-table tfoot td,html[dark] .keyword-info-table tfoot tr,html[dark] .keyword-info-table tfoot td{border:none}.keyword-info-table td:first-child{padding-left:16px}.keyword-info-table td:last-child{padding-right:0px}.keyword-info-table tfoot tr,.keyword-info-table tfoot td{border:none}.ubersuggest-button{color:#0086f7;font-family:Figtree;font-size:14px;font-weight:bold;line-height:29px;padding:8px 30px;border:1px solid #0086f7;background-color:#fff;border-radius:2px;outline:none;border:none;cursor:pointer;margin:4px}.ubersuggest-logo-wrapper{display:flex;align-items:center;justify-content:flex-end;margin:10px 10px 0 0;font-weight:bold;color:#26282d}.ubersuggest-logo{width:182px;height:33px;cursor:pointer}.keyword-info-container .row{display:flex;justify-content:space-between;align-items:center;margin:0;padding:20px 16px}.header h2{color:#000;font-family:Figtree;font-size:24px;font-weight:500}html[dark] .keyword-info-container .title{color:#fff}html[dark] table.keyword-info-table{color:#fff}html[dark] .keyword-info-table th{color:#fff}html[dark] .keyword-info-table tfoot tr:last-child td .button-arrow{border-color:#fff}body[data-dt="1"] .keyword-info-container .title{color:#fff}body[data-dt="1"] .keyword-info-container .tabs{border-color:rgba(255,255,255,.0509803922)}body[data-dt="1"] table.keyword-info-table{color:#fff}body[data-dt="1"] .keyword-info-table th{color:#fff}</style><style>.tippy-box[data-theme~=tip-dark] .tippy-content,.tippy-box[data-theme~=tip-light] .tippy-content{padding:0}.tippy-box[data-theme~=tip-dark]>.tippy-backdrop{background-color:#fff}.tippy-box[data-theme~=tip-dark]>.tippy-arrow:after{border-color:#fff;border-style:solid}.tippy-box[data-theme~=tip-dark][data-placement^=top]>.tippy-arrow:before{border-top-color:#fff}.tippy-box[data-theme~=tip-dark][data-placement^=top]>.tippy-arrow:after{border-top-color:#fff}.tippy-box[data-theme~=tip-dark][data-placement^=bottom]>.tippy-arrow:before{border-bottom-color:#fff;bottom:16px}.tippy-box[data-theme~=tip-dark][data-placement^=bottom]>.tippy-arrow:after{border-bottom-color:#fff}.tippy-box[data-theme~=tip-dark][data-placement^=left]>.tippy-arrow:before{border-left-color:#fff}.tippy-box[data-theme~=tip-dark][data-placement^=left]>.tippy-arrow:after{border-left-color:#fff}.tippy-box[data-theme~=tip-dark][data-placement^=right]>.tippy-arrow:before{border-right-color:#fff}.tippy-box[data-theme~=tip-dark][data-placement^=right]>.tippy-arrow:after{border-right-color:#fff}.tippy-box[data-theme~=tip-dark]>.tippy-svg-arrow{fill:#fff}.tippy-box[data-theme~=tip-light]>.tippy-backdrop{background-color:#202020}.tippy-box[data-theme~=tip-light]>.tippy-arrow:after{border-color:#202020;border-style:solid}.tippy-box[data-theme~=tip-light][data-placement^=top]>.tippy-arrow:before{border-top-color:#202020}.tippy-box[data-theme~=tip-light][data-placement^=top]>.tippy-arrow:after{border-top-color:#202020}.tippy-box[data-theme~=tip-light][data-placement^=bottom]>.tippy-arrow:before{border-bottom-color:#202020;bottom:16px}.tippy-box[data-theme~=tip-light][data-placement^=bottom]>.tippy-arrow:after{border-bottom-color:#202020}.tippy-box[data-theme~=tip-light][data-placement^=left]>.tippy-arrow:before{border-left-color:#202020}.tippy-box[data-theme~=tip-light][data-placement^=left]>.tippy-arrow:after{border-left-color:#202020}.tippy-box[data-theme~=tip-light][data-placement^=right]>.tippy-arrow:before{border-right-color:#202020}.tippy-box[data-theme~=tip-light][data-placement^=right]>.tippy-arrow:after{border-right-color:#202020}.tippy-box[data-theme~=tip-light]>.tippy-svg-arrow{fill:#202020}</style><style>.tippy-box[data-animation=fade][data-state=hidden]{opacity:0}[data-tippy-root]{max-width:calc(100vw - 10px)}.tippy-box{position:relative;background-color:#333;color:#fff;border-radius:4px;font-size:14px;line-height:1.4;white-space:normal;outline:0;transition-property:transform,visibility,opacity}.tippy-box[data-placement^=top]>.tippy-arrow{bottom:0}.tippy-box[data-placement^=top]>.tippy-arrow:before{bottom:-7px;left:0;border-width:8px 8px 0;border-top-color:initial;transform-origin:center top}.tippy-box[data-placement^=bottom]>.tippy-arrow{top:0}.tippy-box[data-placement^=bottom]>.tippy-arrow:before{top:-7px;left:0;border-width:0 8px 8px;border-bottom-color:initial;transform-origin:center bottom}.tippy-box[data-placement^=left]>.tippy-arrow{right:0}.tippy-box[data-placement^=left]>.tippy-arrow:before{border-width:8px 0 8px 8px;border-left-color:initial;right:-7px;transform-origin:center left}.tippy-box[data-placement^=right]>.tippy-arrow{left:0}.tippy-box[data-placement^=right]>.tippy-arrow:before{left:-7px;border-width:8px 8px 8px 0;border-right-color:initial;transform-origin:center right}.tippy-box[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(0.54, 1.5, 0.38, 1.11)}.tippy-arrow{width:16px;height:16px;color:#333}.tippy-arrow:before{content:"";position:absolute;border-color:rgba(0,0,0,0);border-style:solid}.tippy-content{position:relative;padding:5px 9px;z-index:1}</style><style>.tippy-box[data-theme~=light]{color:#26323d;box-shadow:0 0 20px 4px rgba(154,161,177,.15),0 4px 80px -8px rgba(36,40,47,.25),0 4px 4px -2px rgba(91,94,105,.15);background-color:#fff}.tippy-box[data-theme~=light][data-placement^=top]>.tippy-arrow:before{border-top-color:#fff}.tippy-box[data-theme~=light][data-placement^=bottom]>.tippy-arrow:before{border-bottom-color:#fff}.tippy-box[data-theme~=light][data-placement^=left]>.tippy-arrow:before{border-left-color:#fff}.tippy-box[data-theme~=light][data-placement^=right]>.tippy-arrow:before{border-right-color:#fff}.tippy-box[data-theme~=light]>.tippy-backdrop{background-color:#fff}.tippy-box[data-theme~=light]>.tippy-svg-arrow{fill:#fff}</style><style id="_goober"> @keyframes go2264125279{from{transform:scale(0) rotate(45deg);opacity:0;}to{transform:scale(1) rotate(45deg);opacity:1;}}@keyframes go3020080000{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}@keyframes go463499852{from{transform:scale(0) rotate(90deg);opacity:0;}to{transform:scale(1) rotate(90deg);opacity:1;}}@keyframes go1268368563{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}@keyframes go1310225428{from{transform:scale(0) rotate(45deg);opacity:0;}to{transform:scale(1) rotate(45deg);opacity:1;}}@keyframes go651618207{0%{height:0;width:0;opacity:0;}40%{height:0;width:6px;opacity:1;}100%{opacity:1;height:10px;}}@keyframes go901347462{from{transform:scale(0.6);opacity:0.4;}to{transform:scale(1);opacity:1;}}.go4109123758{z-index:9999;}.go4109123758 > *{pointer-events:auto;}</style><style>.ubersuggest-header-container{box-sizing:border-box;width:100%;font-size:12px;-webkit-font-smoothing:antialiased}@keyframes slideInFromLeft{from{transform:translateX(100%);opacity:0}to{transform:translateX(-4%);opacity:1}}.ubersuggest-header-container .toast-container{animation:slideInFromLeft .5s ease forwards}.ubersuggest-header-container .row{margin:0;padding:15px 16px 15px 16px;display:flex;justify-content:space-between;align-items:center;min-height:30px}.ubersuggest-header-container .row>div{display:flex;flex-wrap:wrap;gap:8px}.ubersuggest-header-container .row>div:first-child>div{flex-wrap:wrap;align-content:space-around}.ue-enable{display:block}.ue-disable,.ue-enable.hide-settings{display:none !important}.ue-disable.hide-settings{display:flex !important}.ubersuggest-header-container .settings{display:flex;align-items:center}.ubersuggest-header-container .settings-label{margin-right:21px}.ubersuggest-header-container .settings-icon{width:21px;height:21px;margin-right:7px}</style><style>.rr--group{display:flex;width:100%;position:relative}.rr--box{display:flex;width:100%;flex-grow:1;-webkit-tap-highlight-color:rgba(0,0,0,0)}.rr--svg{display:flex;aspect-ratio:1;width:100%;flex-grow:1;overflow:clip;pointer-events:none}@supports not (overflow: clip){.rr--svg{overflow:auto}}.rr--box:focus,.rr--box:focus-visible,.rr-reset:focus-visible,.rr-reset:focus{outline:none;box-shadow:none}.rr--focus-reset{outline:6px double #0079ff}.rr--box:focus-visible .rr--svg{outline:6px double #0079ff;isolation:isolate}.rr--reset{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0;right:0;bottom:50%}[dir=rtl] .rr--reset{left:0;right:auto}.rr--dir-y .rr--reset{bottom:0;right:50%}.rr--disabled{opacity:.5;cursor:not-allowed}.rr--disabled .rr--svg{pointer-events:none}.rr--pointer .rr--box{cursor:pointer}.rr--dir-x{flex-direction:row}.rr--dir-y{flex-direction:column}.rr--space-sm .rr--svg{padding:8%}.rr--space-md .rr--svg{padding:12.5%}.rr--space-lg .rr--svg{padding:17.5%}.rr--dir-x.rr--gap-sm .rr--svg{margin:0 6.25%}.rr--dir-x.rr--gap-sm .rr--box:focus-visible:after{width:87.5%;left:6.25%}.rr--dir-x.rr--gap-md .rr--svg{margin:0 12.5%}.rr--dir-x.rr--gap-md .rr--box:focus-visible:after{width:75%;left:12.5%}.rr--dir-x.rr--gap-lg .rr--svg{margin:0 25%}.rr--dir-x.rr--gap-lg .rr--box:focus-visible:after{width:50%;left:25%}.rr--dir-y.rr--gap-sm .rr--svg{margin:6.25% 0}.rr--dir-y.rr--gap-md .rr--svg{margin:12.5% 0}.rr--dir-y.rr--gap-lg .rr--svg{margin:25% 0}.rr--rx-sm .rr--svg{border-radius:5%}.rr--rx-md .rr--svg{border-radius:15%}.rr--rx-lg .rr--svg{border-radius:20%}.rr--rx-full .rr--svg{border-radius:100%}.rr--has-stroke .rr--svg{stroke-linecap:round;stroke-linejoin:round}.rr--has-border .rr--svg{border-width:var(--rr--border-width);border-style:solid}.rr--on .rr--svg{fill:var(--rr--fill-on-color, none)}.rr--off .rr--svg{fill:var(--rr--fill-off-color, none)}.rr--has-stroke .rr--on .rr--svg{stroke:var(--rr--stroke-on-color, currentColor)}.rr--has-stroke .rr--off .rr--svg{stroke:var(--rr--stroke-off-color, currentColor)}.rr--on .rr--svg{background-color:var(--rr--box-on-color, none)}.rr--off .rr--svg{background-color:var(--rr--box-off-color, none)}.rr--has-border .rr--off .rr--svg{border-color:var(--rr--border-off-color, currentColor)}.rr--has-border .rr--on .rr--svg{border-color:var(--rr--border-on-color, currentColor)}.rr--fx-colors{--rr--easing: .2s cubic-bezier(.61, 1, .88, 1)}.rr--fx-colors .rr--svg{transition-duration:.2s;transition-timing-function:var(--rr--easing);transition-property:background-color,border-color,fill,stroke}.rr--fx-opacity .rr--off{opacity:.35;transition:opacity var(--rr--easing)}.rr--fx-opacity .rr--on{opacity:1}@media(hover: hover){.rr--fx-opacity .rr--box:hover{opacity:1}}@media(hover: hover){.rr--fx-zoom .rr--box{transition:transform var(--rr--easing);transform:scale(1)}.rr--fx-zoom .rr--box:hover{transform:scale(1.2)}}@media(hover: hover)and (prefers-reduced-motion){.rr--fx-zoom .rr--box:hover{transform:scale(1)}}@media(hover: hover){.rr--fx-position .rr--box{transition:transform var(--rr--easing);transform:translateY(0)}.rr--fx-position .rr--box:hover{transform:translateY(-15%)}}@media(hover: hover)and (prefers-reduced-motion){.rr--fx-position .rr--box:hover{transform:translateY(0)}}.rr--svg-stop-1{stop-color:var(--rr--fill-on-color, rgba(0, 0, 0, 0))}[dir=rtl] .rr--svg-stop-1,.rr--svg-stop-2{stop-color:var(--rr--fill-off-color, rgba(0, 0, 0, 0))}[dir=rtl] .rr--svg-stop-2{stop-color:var(--rr--fill-on-color, rgba(0, 0, 0, 0))}.rr--hf-svg-on{fill:var(--rr--fill-on-color, none)}.rr--hf-svg-off{fill:var(--rr--fill-off-color, none)}.rr--has-stroke .rr--hf-svg-on{stroke:var(--rr--stroke-on-color, currentColor)}.rr--has-stroke .rr--hf-svg-off{stroke:var(--rr--stroke-off-color, currentColor)}.rr--hf-svg-on .rr--svg,.rr--hf-svg-off .rr--svg{background-color:var(--rr--box-off-color, none)}.rr--has-border .rr--hf-svg-on .rr--svg{border-color:var(--rr--border-on-color, currentColor)}.rr--has-border .rr--hf-svg-off .rr--svg{border-color:var(--rr--border-off-color, currentColor)}.rr--dir-x .rr--hf-box-int .rr--svg{background:linear-gradient(to right, var(--rr--box-on-color, none) 50%, var(--rr--box-off-color, none) 50%)}[dir=rtl] .rr--dir-x .rr--hf-box-int .rr--svg{background:linear-gradient(to left, var(--rr--box-on-color, none) 50%, var(--rr--box-off-color, none) 50%)}.rr--dir-y .rr--hf-box-int .rr--svg{background:linear-gradient(to bottom, var(--rr--box-on-color, none) 50%, var(--rr--box-off-color, none) 50%)}.rr--hf-box-on .rr--svg{background-color:var(--rr--box-on-color, none)}.rr--hf-box-off .rr--svg{background-color:var(--rr--box-off-color, none)}.rr--hf-box-on .rr--svg,.rr--hf-box-off .rr--svg,.rr--hf-box-int .rr--svg{fill:var(--rr--fill-off-color, none)}.rr--has-stroke .rr--hf-box-on .rr--svg,.rr--has-stroke .rr--hf-box-off .rr--svg,.rr--has-stroke .rr--hf-box-int .rr--svg{stroke:var(--rr--stroke-off-color, currentColor)}.rr--has-border .rr--hf-box-on .rr--svg,.rr--has-border .rr--hf-box-int .rr--svg{border-color:var(--rr--border-on-color, currentColor)}.rr--has-border .rr--hf-box-off .rr--svg{border-color:var(--rr--border-off-color, currentColor)}</style><style>.keyword-info-section{color:#26282d;font-family:Figtree;font-size:12px;height:100%;display:flex;align-items:center;-webkit-font-smoothing:antialiased}.keyword-info-section img{max-width:none}.keyword-info-section>li{font-weight:600;position:relative;display:flex;align-items:center;gap:6px}.keyword-info-section>li:first-child::after{content:"";width:6px;height:6px;background-color:#e8ebec;border-radius:50%;margin:0px 10px 0px 4px}body[data-dt="1"] .keyword-info-section>li:first-child::after{background-color:#636363}.keyword-info-section.hidden{display:none}.keyword-info-section.google{background-color:rgba(0,0,0,0)}.keyword-info-section.youtube{margin-right:15px;padding:0 0 0 10px;height:100%;background-color:#fff}.keyword-info-section.amazon{padding:13px 0;background-color:#fff}</style><style>.kw-overview-container{box-sizing:border-box;width:673px;padding:0;margin:0;margin-top:14px;font-size:12px;font-family:Figtree;-webkit-font-smoothing:antialiased}.kw-overview-container.youtube{box-sizing:border-box;width:645px;padding:0;margin:0;font-size:12px}</style><style>.bl-info-container{box-sizing:border-box;width:100%;padding:0;margin:0;font-size:12px;font-family:"Figtree";-webkit-font-smoothing:antialiased}.bl-info-header{display:flex;min-height:24px;width:100%;padding:0;justify-content:space-between;box-sizing:border-box;margin-bottom:5px}.bl-info-header .row{display:flex;margin:0;width:100%;justify-content:space-between}.bl-info-header .row.youtube{justify-content:flex-start}.bl-info-content,.kw-info-content{width:97%;display:flex;flex-direction:column;border:1px solid #dee1e5;border-radius:4px;padding-block:16px 10px;justify-items:center;align-items:center;margin-bottom:16px;position:relative}body[data-dt="1"] .kw-info-content,body[data-dt="1"] .bl-info-content{background:rgba(0,0,0,0);border-color:#292929}.bl-info-content img.loading{width:50px;margin:0 auto;margin-bottom:10px}.kw-info-content img.loading{width:50px;margin:0 auto;margin-top:10px;margin-bottom:10px}table.bl-info-table,table.kw-info-table{border-collapse:collapse;width:calc(100% - 32px);color:#808185;font-size:12px}body[data-dt="1"] table.bl-info-table,body[data-dt="1"] table.kw-info-table{color:#fff}.bl-info-table thead,.kw-info-table thead{height:50px;background:#f6f7f7}body[data-dt="1"] table.bl-info-table thead,body[data-dt="1"] table.kw-info-table thead{background:#36373a}.bl-info-table tr,.kw-info-table tr{width:100%;max-width:600px}.bl-info-table th,.kw-info-table th{padding:10px;padding-left:0;font-weight:600;color:#000;font-size:12px;border-bottom:1px solid #f6f7f7}body[data-dt="1"] .bl-info-table th,body[data-dt="1"] .kw-info-table th{color:#fff;border-color:#3d4043}.bl-info-table th:first-child,.kw-info-table th:first-child{padding-left:16px}.bl-info-table th:last-child,.kw-info-table th:last-child{border-right:none;padding-right:16px}.bl-info-table td,.kw-info-table td{border-bottom:1px solid #dee1e5;padding:10px;padding-left:0;max-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#000}body[data-dt="1"] .bl-info-table td,body[data-dt="1"] .kw-info-table td{color:#fff;border-color:#3d4043}.bl-info-table td:first-child,.kw-info-table td:first-child{border-left:none;padding-left:16px}.bl-info-table tfoot td:first-child,.kw-info-table tfoot td:first-child{padding-left:0;padding-top:12px}.bl-info-table tfoot td:last-child,.kw-info-table tfoot td:last-child{padding-right:0;padding-top:12px}.bl-info-table td:last-child,.kw-info-table td:last-child{border-right:none;padding-right:16px}.bl-info-table tfoot tr:last-child td,.kw-info-table tfoot tr:last-child td{border-bottom:none}.bl-info-container .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}.bl-info-container .row.start{justify-content:flex-start;gap:10px}.bl-info-container .row.start.tip{border:1px solid #f8b199;border-radius:2px;width:fit-content;padding-right:10px}</style><style>.statistics-graph-container{box-sizing:border-box;width:92%;font-size:12px;border-bottom:1px solid #dee1e5;border:1px solid #f1f3f4;margin:24px 16px;border-radius:2px;padding:20px;padding-bottom:10px;position:relative;-webkit-font-smoothing:antialiased}body[data-dt="1"] .statistics-graph-container{border-color:#3d4042}.statistics-graph-container.tip{border:1px solid #f8b199;border-radius:2px}.statistics-graph-container .row{display:flex;justify-content:space-between;align-items:center;margin:0 0 20px 0}.statistics-graph-container .row.closed{margin-bottom:10px}.statistics-graph-container .row .title{color:#26282d;font-size:16px;font-weight:bold}body[data-dt="1"] .statistics-graph-container .row .title{color:#fff}body[data-dt="1"] .statistics-graph-container .tabs{border-bottom:1px solid #dee1e5}body[data-dt="1"] .statistics-graph-container .tabs li{color:#fff}body[data-dt="1"] .statistics-graph-container .tabs li.active{color:#fff;border-bottom:3px solid #fff}</style><script src="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/js/recordConsoleEvents.js"></script><style type="text/css">@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1287.0" data-gr-ext-installed="">
+  <div class="page-wrapper">
+
+    <!-- Header -->
+    <header id="site-header">
+      <div class="header-container">
+        <div id="header-row">
+          <a href="https://iitianschool.in/#" class="logo-link">
+            <span class="logo-text">IITian's School</span>
+          </a>
+
+          <!-- Desktop Nav -->
+          <nav id="nav-desktop" style="display: flex;">
+            <a href="https://iitianschool.in/#card-slider" class="nav-link">Our Results</a>
+            <a href="https://iitianschool.in/#courses" class="nav-link">Courses</a>
+            <a href="https://iitianschool.in/#learning-resources" class="nav-link">Learning Resources</a>
+            <a href="https://iitianschool.in/#video-slider" class="nav-link">Video Resources</a>
+            <a href="https://iitianschool.in/#why-join" class="nav-link">Why to Join</a>
+            <a href="https://iitianschool.in/#contact" class="nav-link">Contact Us</a>
+          </nav>
+
+          <!-- Right actions -->
+          <div id="header-actions">
+            <!-- Mobile hamburger -->
+            <button id="hamburger" aria-label="Open menu" style="display: none;">
+              <span class="material-icons hamburger-icon">menu</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile nav -->
+        <div id="nav-mobile" style="display: none;">
+          <div class="mobile-nav-links">
+            <a href="https://iitianschool.in/#card-slider" class="mobile-nav-link">Our Results</a>
+            <a href="https://iitianschool.in/#courses" class="mobile-nav-link">Courses</a>
+            <a href="https://iitianschool.in/#learning-resources" class="mobile-nav-link">Learning Resources</a>
+            <a href="https://iitianschool.in/#video-slider" class="mobile-nav-link">Video Resources</a>
+            <a href="https://iitianschool.in/#why-join" class="mobile-nav-link">Why to Join</a>
+            <a href="https://iitianschool.in/#contact" class="mobile-nav-link">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main -->
+    <main>
+      <!-- Home / Hero -->
+      <section id="home">
+        <div class="section-container">
+          <div id="hero-grid">
+            <div class="hero-text">
+              <h1 class="hero-title">Unlock Your Potential at <span class="hero-highlight">IITian's School</span></h1>
+              <p class="hero-description">Excellence in education, guided by the best minds. Join us to shape your
+                future and achieve your dreams.</p>
+              <div class="hero-buttons">
+                <a href="https://iitianschool.in/#courses" class="btn-primary">Explore Courses</a>
+                <!-- <a href="#courses" class="btn-secondary">Explore Courses</a> -->
+              </div>
+            </div>
+            <div class="hero-image-wrapper">
+              <div class="hero-image-container">
+                <img src="./IITian&#39;s School_files/logo.png" alt="Students" class="hero-image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Latest Update -->
+      <section id="latest-update" class="latest-update-section">
+        <div class="section-container">
+          <div class="latest-update-card">
+            <div class="update-left">
+              <h2 class="update-title">Latest Update</h2>
+              <p class="update-sub">Important announcement from IITian's School</p>
+            </div>
+            <div class="update-right">
+              <div class="update-number" aria-live="polite">upto 100% scholarship for 26-28 batch</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="card-slider" class="slider-section">
+        <div class="section-header">
+            <h2 class="section-title">Our Results</h2>
+            <!-- <p class="section-subtitle">Tailored programs to help you excel in competitive exams.</p> -->
+          </div>
+        <div class="slider-container">
+          <button class="slider-btn prev">&lt;</button>
+
+          <div class="slider-track" style="transition: none; transform: translateX(-773.932px);">
+            <!-- Card 1 -->
+            <div class="slider-card">
+              <img src="./IITian&#39;s School_files/pragya.jpg" alt="Student 1">
+              <h3>Pragya Choudhary</h3>
+              <p>IIT Kharagpur</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="slider-card">
+              <img src="./IITian&#39;s School_files/abhijit.jpg" alt="Student 2">
+              <h3>Abhijit Manu</h3>
+              <p>IIT Bhuvneshwar</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="slider-card">
+              <img src="./IITian&#39;s School_files/aditya.jpg" alt="Student 3">
+              <h3>Aditya Behera</h3>
+              <p>NIT Rourkela</p>
+            </div>
+            <div class="slider-card">
+              <img src="./IITian&#39;s School_files/ayiman.png" alt="Student 4">
+              <h3>Ayiman Mohanty</h3>
+              <p>NIT Manglore</p>
+            </div>
+            <div class="slider-card">
+              <img src="./IITian&#39;s School_files/moon.jpg" alt="Student 5">
+              <h3>Somsubhra Mukherjee</h3>
+              <p>IIT Kharagpur</p>
+            </div>
+            <div class="slider-card">
+              <img src="./IITian&#39;s School_files/sun.jpeg" alt="Student 6">
+              <h3>Sourasish Mukherjee</h3>
+              <p>IIT Kharagpur</p>
+            </div>
+            <!-- Add more cards as needed -->
+          <div class="slider-card">
+              <img src="./IITian&#39;s School_files/pragya.jpg" alt="Student 1">
+              <h3>Pragya Choudhary</h3>
+              <p>IIT Kharagpur</p>
+            </div><div class="slider-card">
+              <img src="./IITian&#39;s School_files/abhijit.jpg" alt="Student 2">
+              <h3>Abhijit Manu</h3>
+              <p>IIT Bhuvneshwar</p>
+            </div><div class="slider-card">
+              <img src="./IITian&#39;s School_files/aditya.jpg" alt="Student 3">
+              <h3>Aditya Behera</h3>
+              <p>NIT Rourkela</p>
+            </div><div class="slider-card">
+              <img src="./IITian&#39;s School_files/ayiman.png" alt="Student 4">
+              <h3>Ayiman Mohanty</h3>
+              <p>NIT Manglore</p>
+            </div><div class="slider-card">
+              <img src="./IITian&#39;s School_files/moon.jpg" alt="Student 5">
+              <h3>Somsubhra Mukherjee</h3>
+              <p>IIT Kharagpur</p>
+            </div><div class="slider-card">
+              <img src="./IITian&#39;s School_files/sun.jpeg" alt="Student 6">
+              <h3>Sourasish Mukherjee</h3>
+              <p>IIT Kharagpur</p>
+            </div></div>
+
+          <button class="slider-btn next">&gt;</button>
+        </div>
+      </section>
+      <!-- Courses -->
+      <section id="courses">
+        <div class="section-container">
+          <div class="section-header">
+            <h2 class="section-title">Our Courses</h2>
+            <p class="section-subtitle">Tailored programs to help you excel in competitive exams.</p>
+          </div>
+          <div class="courses-grid">
+            <div class="course-card">
+              <div class="course-content">
+                <h3 class="course-title">JEE Foundation</h3>
+                <p class="course-description">For students of Class IX &amp; X.</p>
+              </div>
+            </div>
+            <div class="course-card">
+              <div class="course-content">
+                <h3 class="course-title">Integrated Engineering(1yr. &amp; 2yr.)</h3>
+                <p class="course-description">For students of Class XI &amp; XII.</p>
+              </div>
+            </div>
+            <div class="course-card">
+              <div class="course-content">
+                <h3 class="course-title">Integrated Medica(1yr. &amp; 2yr.)</h3>
+                <p class="course-description">Comprehensive medical entrance coaching.</p>
+              </div>
+            </div>
+            <div class="course-card">
+              <div class="course-content">
+                <h3 class="course-title">1 year Engineering(for droppers)</h3>
+                <p class="course-description">Intensive crash course for final preparation.</p>
+              </div>
+            </div>
+            <div class="course-card">
+              <div class="course-content">
+                <h3 class="course-title">1 year Medical(for droppers)</h3>
+                <p class="course-description">Intensive crash course for final preparation.</p>
+              </div>
+            </div>
+            <div class="course-card">
+              <div class="course-content">
+                <h3 class="course-title">Olympiads, NEST, etc </h3>
+                <p class="course-description">Sharpen your skills for national exams.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Learning Resources -->
+      <section id="learning-resources">
+        <div class="section-container">
+          <div class="section-header">
+            <h2 class="section-title">Learning Resources</h2>
+            <p class="section-subtitle">Chapterwise practice questions, DPPs, Test series and PYQs</p>
+          </div>
+          <div class="lr-grid">
+            <a href="https://drive.google.com/drive/folders/1m7u-0k3jYnkPdStDFPBJdHWfm4DlqNwQ?usp=drive_link" target="_blank" rel="noopener noreferrer" class="lr-card-link">
+              <div class="lr-card">
+                <span class="coming-soon" aria-hidden="true">Coming Soon</span>
+                <div class="lr-card-content">
+                  <h3 class="lr-title">Chapterwise</h3><h3 class="lr-title"> Practice Questions</h3>
+                  <p class="lr-desc">Structured practice arranged chapter by chapter to strengthen fundamentals.</p>
+                </div>
+              </div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1HLj_1eFLBcb0JoL6ArHmqINci6FDYW3c?usp=drive_link" target="_blank" rel="noopener noreferrer" class="lr-card-link">
+              <div class="lr-card">
+                <span class="coming-soon" aria-hidden="true">Coming Soon</span>
+                <div class="lr-card-content">
+                  <h3 class="lr-title">DPPs</h3>
+                  <p class="lr-desc">Daily Practice Problems to build speed and accuracy over time.</p>
+                </div>
+              </div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1WWnPNxEn620nwDm4jYEf6ZNPNkL1VcOx?usp=drive_link" target="_blank" rel="noopener noreferrer" class="lr-card-link">
+              <div class="lr-card">
+                <span class="coming-soon" aria-hidden="true">Coming Soon</span>
+                <div class="lr-card-content">
+                  <h3 class="lr-title">Test Series</h3>
+                  <p class="lr-desc">Full-length &amp; sectional tests to simulate actual exam conditions.</p>
+                </div>
+              </div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1KhrClSTUpHbFg8iXaD-SPFO9xCa55svF?usp=drive_link" target="_blank" rel="noopener noreferrer" class="lr-card-link">
+              <div class="lr-card">
+                <span class="coming-soon" aria-hidden="true">Coming Soon</span>
+                <div class="lr-card-content">
+                  <h3 class="lr-title">PYQs</h3>
+                  <p class="lr-desc">Previous years' questions for targeted revision and pattern analysis.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video Slider -->
+      <section id="video-slider" class="video-slider-section">
+        <div class="section-header">
+          <h2 class="section-title">Our Video Tutorials</h2>
+          <p class="section-subtitle">Have a glipmse of our tutorials</p>
+        </div>
+        <div class="video-slider-container">
+          <button class="slider-btn prev">&lt;</button>
+
+          <div class="video-slider-track" style="transition: none; transform: translateX(-1523.29px);">
+            <!-- Video 1 -->
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/hpkkCPmTKgg.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-0"></iframe>
+              </div>
+              <h3>Aeroplane Wind Problem</h3>
+              <p>Trick to solve</p>
+            </div>
+            <!-- Video 2 -->
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/6IGsBm2oS5I.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-1"></iframe>
+              </div>
+              <h3>Rain Man Problem</h3>
+              <p>Trick to solve</p>
+            </div>
+            <!-- Video 3 -->
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/_Vbkwmf-Po4.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-2"></iframe>
+              </div>
+              <h3>Vernier Caliper</h3>
+              <p>Numerical Problems</p>
+            </div>
+            <!-- Video 4 -->
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/3T0sn7nKZYk.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-3"></iframe>
+              </div>
+              <h3>Screw Gauge</h3>
+              <p>Numerical Problems</p>
+            </div>
+            <!-- Video 5 -->
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/JgitBj-KH48.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-4"></iframe>
+              </div>
+              <h3>Thermodynamics</h3>
+              <p>Important Graphical Problems</p>
+            </div>
+            <!-- Video 6 -->
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/S3KaE_pL3IY.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-5"></iframe>
+              </div>
+              <h3>Gravitation</h3>
+              <p>All Important Graphs</p>
+            </div>
+            <!-- Video 7 -->
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/-I4uujiFqoM.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-6"></iframe>
+              </div>
+              <h3>Zener Diode</h3>
+              <p>Trick to solve</p>
+            </div>
+            <!-- Video 8 -->
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/XeXVEVXXbDQ.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-7"></iframe>
+              </div>
+              <h3>Resistance &amp; Capacitance</h3>
+              <p>Important Results</p>
+            </div>
+          <div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/hpkkCPmTKgg(1).html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-8"></iframe>
+              </div>
+              <h3>Aeroplane Wind Problem</h3>
+              <p>Trick to solve</p>
+            </div><div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/6IGsBm2oS5I(1).html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-9"></iframe>
+              </div>
+              <h3>Rain Man Problem</h3>
+              <p>Trick to solve</p>
+            </div><div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/_Vbkwmf-Po4(1).html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-10"></iframe>
+              </div>
+              <h3>Vernier Caliper</h3>
+              <p>Numerical Problems</p>
+            </div><div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/3T0sn7nKZYk(1).html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-11"></iframe>
+              </div>
+              <h3>Screw Gauge</h3>
+              <p>Numerical Problems</p>
+            </div><div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/JgitBj-KH48(1).html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-12"></iframe>
+              </div>
+              <h3>Thermodynamics</h3>
+              <p>Important Graphical Problems</p>
+            </div><div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/S3KaE_pL3IY(1).html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-13"></iframe>
+              </div>
+              <h3>Gravitation</h3>
+              <p>All Important Graphs</p>
+            </div><div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/-I4uujiFqoM(1).html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-14"></iframe>
+              </div>
+              <h3>Zener Diode</h3>
+              <p>Trick to solve</p>
+            </div><div class="video-card">
+              <div class="video-frame">
+                <iframe width="100%" height="280" src="./IITian&#39;s School_files/XeXVEVXXbDQ(1).html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" id="yt-player-15"></iframe>
+              </div>
+              <h3>Resistance &amp; Capacitance</h3>
+              <p>Important Results</p>
+            </div></div>
+
+          <button class="slider-btn next">&gt;</button>
+        </div>
+      </section>
+
+      <!-- Why Join -->
+      <section id="why-join">
+        <div class="section-container">
+          <div class="section-header">
+            <h2 class="section-title">Why Join Us?</h2>
+            <p class="section-subtitle">The IITian's School advantage.</p>
+          </div>
+          <div class="why-join-content">
+            <div class="why-join-image-wrapper">
+              <img src="./IITian&#39;s School_files/bhaskar.jpg" alt="Teacher explaining" class="why-join-image">
+              <h2 style="color: white;">Bhaskar Kumar Jha</h2>
+              <p style="color: white;">Founder &amp; Director</p>
+            </div>
+            <div class="why-join-features">
+              <div class="feature-item">
+                <div>
+                  <h3 class="feature-title">Team of Highly Experienced Teachers</h3>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div>
+                  <h3 class="feature-title">Brain Storming Tricks &amp; Shortcut for Fast Calculation</h3>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div>
+                  <h3 class="feature-title">Special Focus on High-Weightage Topics</h3>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div>
+                  <h3 class="feature-title">Earliest Course Completion</h3>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div>
+                  <h3 class="feature-title">Integrated Course(Board + Entrance)</h3>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div>
+                  <h3 class="feature-title">One to One Doubt Clearing</h3>
+                  <!-- <p class="feature-description">Structured courses designed for success.</p> -->
+                </div>
+              </div>
+              <div class="feature-item">
+                <!-- <span class="material-icons feature-icon">menu_book</span> -->
+                <div>
+                  <h3 class="feature-title">Maximum Probability of Result in First Attempt</h3>
+                  <!-- <p class="feature-description">Structured courses designed for success.</p> -->
+                </div>
+              </div>
+              <div class="feature-item">
+                <!-- <span class="material-icons feature-icon">menu_book</span> -->
+                <div>
+                  <h3 class="feature-title">Regular Monitoring, Motivation &amp; Counselling</h3>
+                  <!-- <p class="feature-description">Structured courses designed for success.</p> -->
+                </div>
+              </div>
+              <div class="feature-item">
+                <!-- <span class="material-icons feature-icon">menu_book</span> -->
+                <div>
+                  <h3 class="feature-title">To the Point Result Oriented Study</h3>
+                  <!-- <p class="feature-description">Structured courses designed for success.</p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-container">
+          <div class="section-header">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">We're here to help. Reach out to us anytime.</p>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <span class="material-icons contact-icon">location_on</span>
+              <h3 class="contact-title">Address</h3>
+              <p class="contact-info">Patia, Bhubaneswar-751031, India</p>
+            </div>
+            <div class="contact-card">
+              <span class="material-icons contact-icon">email</span>
+              <h3 class="contact-title">Email</h3>
+              <p class="contact-info">iitianschoolonline@gmail.com</p>
+            </div>
+            <div class="contact-card">
+              <span class="material-icons contact-icon">call</span>
+              <h3 class="contact-title">Phone</h3>
+              <p class="contact-info"> 9827618994</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer id="socials">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <!-- <span class="material-icons footer-icon">school</span> -->
+            <span class="footer-brand-text">IITian's School</span>
+          </div>
+          <p class="footer-copyright">© 2019 IITian's School. All rights reserved.</p>
+          <div class="social-links">
+            <a href="https://www.youtube.com/@physicsmath8402" aria-label="YouTube" class="social-link">
+              <div class="social-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon">
+                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.887 3.437.16 4.148.16 8.397v7.207c0 4.249.727 4.96 4.225 5.207 3.604.246 11.631.245 15.23 0 3.498-.247 4.225-.958 4.225-5.207V8.397c0-4.249-.727-4.96-4.225-5.213zM9.593 15.631V8.369l6.541 3.631-6.541 3.631z"></path>
+                </svg>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/bhaskar-kumar-jha-360062248?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" aria-label="LinkedIn" class="social-link">
+              <div class="social-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon">
+                  <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93-.82 0-1.62.46-1.62 1.93V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.38 1.02 3.38 3.54z"></path>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- JS: responsive nav + small interactions -->
+  <script>
+    // Ensure the page always opens at the top on reload/navigation
+    if ('scrollRestoration' in history) {
+      try { history.scrollRestoration = 'manual'; } catch (e) { /* some browsers may throw */ }
+    }
+    // Immediately scroll to top when JS runs (covers initial load)
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    // Also force scroll to top before unload so browser won't restore position
+    window.addEventListener('beforeunload', function () { window.scrollTo(0, 0); });
+
+    // If the URL contains a hash fragment (e.g. #courses), remove it so reload doesn't jump there
+    if (location.hash) {
+      try {
+        // Scroll to top now
+        window.scrollTo(0, 0);
+        // Remove the hash without adding a history entry
+        history.replaceState(null, '', location.pathname + location.search);
+      } catch (e) { /* ignore if replaceState not allowed */ }
+    }
+
+    // Also ensure scroll-to-top and fragment removal after load (covers some browsers)
+    window.addEventListener('load', function () {
+      try {
+        window.scrollTo(0, 0);
+        if (location.hash) {
+          history.replaceState(null, '', location.pathname + location.search);
+        }
+      } catch (e) { /* ignore */ }
+    });
+
+    (function () {
+      /* Responsive nav (unchanged behavior) */
+      const desktopNav = document.getElementById('nav-desktop');
+      const mobileNav = document.getElementById('nav-mobile');
+      const hamburger = document.getElementById('hamburger');
+
+      function updateNav() {
+        const w = window.innerWidth;
+        if (w >= 1024) {
+          desktopNav.style.display = 'flex';
+          mobileNav.style.display = 'none';
+          hamburger.style.display = 'none';
+        } else {
+          desktopNav.style.display = 'none';
+          mobileNav.style.display = 'none';
+          hamburger.style.display = 'flex';
+        }
+      }
+      hamburger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        mobileNav.style.display = (mobileNav.style.display === 'flex') ? 'none' : 'flex';
+      });
+      document.addEventListener('click', function (e) {
+        const isClickInside = mobileNav.contains(e.target) || hamburger.contains(e.target);
+        if (!isClickInside) {
+          mobileNav.style.display = 'none';
+        }
+      });
+      updateNav();
+      let t;
+      window.addEventListener('resize', function () {
+        clearTimeout(t);
+        t = setTimeout(updateNav, 120);
+      });
+    })();
+
+    /* Continuous slider: clones slides for seamless looping + smooth auto-scroll */
+    function initSlider(trackSelector, containerSelector) {
+      const track = document.querySelector(trackSelector);
+      const container = document.querySelector(containerSelector);
+      const prevBtn = container.querySelector('.slider-btn.prev');
+      const nextBtn = container.querySelector('.slider-btn.next');
+
+      if (!track) return;
+
+      let slides = Array.from(track.children);
+      const originalCount = slides.length;
+      
+      // Track video play/pause state for video sliders
+      const isVideoSlider = trackSelector.includes('video');
+      let videoPlaying = false;
+
+      // Clone slides once to the end to allow seamless forward sliding
+      slides.forEach((s) => track.appendChild(s.cloneNode(true)));
+
+      // For video sliders, listen to YouTube player events
+      if (isVideoSlider) {
+        // Listen for messages from YouTube iframes
+        const handleYouTubeMessage = (event) => {
+          // Check if message is from YouTube
+          if (event.origin !== 'https://www.youtube.com') return;
+          
+          let data;
+          try {
+            data = JSON.parse(event.data);
+          } catch (e) {
+            return; // Not valid JSON
+          }
+
+          // Listen for player state changes
+          // State 1 = playing, 2 = paused, 0 = ended, -1 = unstarted
+          if (data.event === 'onStateChange') {
+            if (data.info === 1) {
+              // Video started playing
+              videoPlaying = true;
+              stopAuto();
+            } else if (data.info === 2 || data.info === 0) {
+              // Video paused or ended
+              videoPlaying = false;
+              startAuto();
+            }
+          }
+        };
+
+        window.addEventListener('message', handleYouTubeMessage);
+
+        // Enable iframe API for all YouTube videos
+        const iframes = container.querySelectorAll('iframe');
+        iframes.forEach((iframe, index) => {
+          const src = iframe.getAttribute('src');
+          if (src && src.includes('youtube.com')) {
+            // Add unique ID to each iframe
+            iframe.setAttribute('id', `yt-player-${index}`);
+            // Ensure enablejsapi is in the URL
+            if (!src.includes('enablejsapi')) {
+              iframe.setAttribute('src', src + (src.includes('?') ? '&' : '?') + 'enablejsapi=1');
+            }
+          }
+        });
+
+        // Tell YouTube we're listening
+        setTimeout(() => {
+          iframes.forEach((iframe) => {
+            if (iframe.contentWindow) {
+              iframe.contentWindow.postMessage('{"event":"listening"}', '*');
+            }
+          });
+        }, 1000);
+      }
+
+      // State
+      let index = 0; // index into the ORIGINAL slides (0..originalCount-1)
+      let slideWidth = 0;
+      let gap = parseFloat(getComputedStyle(track).gap) || 30;
+      let isTransitioning = false;
+
+      // Continuous motion state
+      let pos = 0; // current translateX in px (negative as we move left)
+      let running = false;
+      let rafId = null;
+      const speed = 40; // px per second, adjust for desired speed
+      let lastTime = null;
+
+      function computeSizes() {
+        const card = track.querySelector('[class*="card"]');
+        if (!card) return;
+        gap = parseFloat(getComputedStyle(track).gap) || 30;
+        slideWidth = card.getBoundingClientRect().width + gap;
+        // Rebase pos according to current index
+        pos = -index * slideWidth;
+        setTranslate(pos, false);
+      }
+
+      function setTranslate(px, withTransition = true) {
+        track.style.transition = withTransition ? 'transform 0.4s ease' : 'none';
+        track.style.transform = `translateX(${px}px)`;
+      }
+
+      function next() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        index += 1;
+        pos = -index * slideWidth;
+        setTranslate(pos, true);
+      }
+
+      function prev() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        index -= 1;
+        pos = -index * slideWidth;
+        setTranslate(pos, true);
+      }
+
+      // After each transition, if we've moved into cloned area, jump back to original
+      track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        // if index is out of original range, wrap
+        if (index >= originalCount) {
+          index = index - originalCount;
+          pos = -index * slideWidth;
+          setTranslate(pos, false);
+        } else if (index < 0) {
+          index = index + originalCount;
+          pos = -index * slideWidth;
+          setTranslate(pos, false);
+        }
+        // reset timing for continuous loop
+        lastTime = null;
+      });
+
+      // Buttons
+      nextBtn.addEventListener('click', (e) => { e.preventDefault(); next(); });
+      prevBtn.addEventListener('click', (e) => { e.preventDefault(); prev(); });
+
+      // Continuous auto-scroll using requestAnimationFrame for smooth motion
+      function animate(time) {
+        if (!lastTime) lastTime = time;
+        const dt = (time - lastTime) / 1000; // seconds
+        lastTime = time;
+
+        if (!isTransitioning) {
+          pos -= speed * dt; // move left
+          // wrap when we've moved past the originals into clones
+          const totalWidth = originalCount * slideWidth;
+          if (pos <= -totalWidth) {
+            pos += totalWidth; // jump forward by totalWidth to the corresponding original pos
+          } else if (pos > 0) {
+            pos -= totalWidth; // handle rare positive overflow
+          }
+          setTranslate(pos, false);
+        }
+
+        rafId = requestAnimationFrame(animate);
+      }
+
+      function startAuto() {
+        if (running) return;
+        // Don't start if a video is playing
+        if (isVideoSlider && videoPlaying) return;
+        running = true;
+        lastTime = null;
+        rafId = requestAnimationFrame(animate);
+      }
+
+      function stopAuto() {
+        running = false;
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = null;
+        lastTime = null;
+      }
+
+      // Pause on hover / focus
+      container.addEventListener('mouseenter', stopAuto);
+      container.addEventListener('mouseleave', () => {
+        // Reset video playing state when mouse leaves
+        if (isVideoSlider) videoPlaying = false;
+        startAuto();
+      });
+      container.addEventListener('focusin', stopAuto);
+      container.addEventListener('focusout', startAuto);
+
+      // Resize handling
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => computeSizes(), 120);
+      });
+
+      // Initialize
+      computeSizes();
+      // Position track at start of original slides (index 0)
+      setTranslate(0, false);
+      startAuto();
+    }
+
+    // Initialize both sliders
+    initSlider('.slider-track', '.slider-container');
+    initSlider('.video-slider-track', '.video-slider-container');
+
+
+    
+  </script>
+
+    </main>
+  </div>
+</body>
+</html>
