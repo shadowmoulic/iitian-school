@@ -1,4 +1,4 @@
-# IITians & Medicos School
+# IITian School
 
 Premium Coaching Platform for JEE & NEET preparation.
 
