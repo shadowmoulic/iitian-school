@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE & NEET Mock Test | IITians & Medicos School</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://demo-work-alpha.vercel.app/iitianschool/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 120px auto 40px;
+            padding: 2rem;
+        }
+
+        .question-card {
+            display: none;
+        }
+
+        .question-card.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .option-btn {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 1.2rem;
+            border-radius: 15px;
+            cursor: pointer;
+            text-align: left;
+            transition: 0.3s;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .option-btn:hover {
+            border-color: var(--primary);
+            background: #f5f3ff;
+        }
+
+        .option-btn.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .timer {
+            font-weight: 800;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--grad);
+            width: 0%;
+            transition: 0.5s;
+        }
+
+        .result-screen {
+            display: none;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--grad);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .score-circle span {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">IITians & Medicos<span>school</span></a>
+            <div class="timer" id="timer">30:00</div>
+        </div>
+    </nav>
+
+    <div class="quiz-container glass" id="quiz-box">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+        <div class="quiz-header">
+            <h4 id="question-number">Question 1/10</h4>
+            <span class="test-category">Physics • Kinematics</span>
+        </div>
+
+        <div id="questions-container">
+            <!-- Questions will be injected here -->
+        </div>
+
+        <div class="quiz-footer" style="margin-top: 3rem; display: flex; justify-content: flex-end;">
+            <button id="next-btn" class="btn-primary">Next Question</button>
+        </div>
+    </div>
+
+    <div class="quiz-container glass result-screen" id="result-box">
+        <div class="score-circle">
+            <div id="final-score">0</div>
+            <span>/ 10</span>
+        </div>
+        <h2>Test Completed!</h2>
+        <p style="margin: 1rem 0 2rem; color: var(--gray);">Great effort! You've successfully completed the JEE & NEET
+            Mock Test.</p>
+        <div class="result-stats"
+            style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+            <div class="stat glass" style="padding: 1rem;">
+                <h4 id="correct-count">0</h4>
+                <p>Correct</p>
+            </div>
+            <div class="stat glass" style="padding: 1rem;">
+                <h4 id="wrong-count">0</h4>
+                <p>Wrong</p>
+            </div>
+            <div class="stat glass" style="padding: 1rem;">
+                <h4 id="time-taken">02:45</h4>
+                <p>Time</p>
+            </div>
+        </div>
+        <a href="index.html" class="btn-primary">Back to Home</a>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                q: "A particle moves in a straight line with deceleration proportional to the square of its velocity. The distance traveled by the particle in time t is:",
+                o: ["proportional to t", "proportional to ln(t)", "proportional to e^t", "proportional to t^2"],
+                a: 1
+            },
+            {
+                q: "The escape velocity of a body from the earth depends on:",
+                o: ["The mass of the body", "The location from where it is projected", "The direction of projection", "The height of the location from where it is projected"],
+                a: 3
+            },
+            {
+                q: "A wire of resistance R is elongated n-fold to make a new uniform wire. The resistance of the new wire is:",
+                o: ["nR", "n²R", "R/n", "R/n²"],
+                a: 1
+            },
+            {
+                q: "The work done to increase the potential of a capacitor from V to 2V is W. Then the work done to increase potential from 2V to 4V will be:",
+                o: ["W", "2W", "4W", "8W"],
+                a: 2
+            },
+            {
+                q: "If the kinetic energy of a free electron doubles, its de-Broglie wavelength changes by the factor:",
+                o: ["1/2", "2", "1/√2", "√2"],
+                a: 2
+            },
+            {
+                q: "Electromagnetic waves are transverse in nature is evident by:",
+                o: ["Polarization", "Interference", "Reflection", "Diffraction"],
+                a: 0
+            },
+            {
+                q: "Which of the following has the highest frequency?",
+                o: ["Radio waves", "Microwaves", "Gamma rays", "Visible light"],
+                a: 2
+            },
+            {
+                q: "A p-n junction diode can be used as:",
+                o: ["Amplifier", "Oscillator", "Detector", "Rectifier"],
+                a: 3
+            },
+            {
+                q: "The focal length of a convex lens is 20cm. Its power is:",
+                o: ["2D", "5D", "-5D", "0.05D"],
+                a: 1
+            },
+            {
+                q: "The velocity of light is maximum in:",
+                o: ["Glass", "Water", "Vacuum", "Diamond"],
+                a: 2
+            }
+        ];
+
+        let currentQ = 0;
+        let score = 0;
+        let selectedOption = null;
+
+        const container = document.getElementById('questions-container');
+        const nextBtn = document.getElementById('next-btn');
+        const progressFill = document.getElementById('progress');
+        const qNum = document.getElementById('question-number');
+
+        function loadQuestion() {
+            const data = quizData[currentQ];
+            container.innerHTML = `
+                <div class="question-card active">
+                    <h3>${data.q}</h3>
+                    <div class="options-grid">
+                        ${data.o.map((opt, i) => `
+                            <button class="option-btn" onclick="selectOption(${i})">${opt}</button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            qNum.innerText = `Question ${currentQ + 1}/10`;
+            progressFill.style.width = `${(currentQ / 10) * 100}%`;
+            selectedOption = null;
+            nextBtn.innerText = currentQ === 9 ? "Finish Test" : "Next Question";
+        }
+
+        window.selectOption = (index) => {
+            selectedOption = index;
+            document.querySelectorAll('.option-btn').forEach((btn, i) => {
+                btn.classList.toggle('selected', i === index);
+            });
+        };
+
+        nextBtn.addEventListener('click', () => {
+            if (selectedOption === null) {
+                alert("Please select an option!");
+                return;
+            }
+
+            if (selectedOption === quizData[currentQ].a) {
+                score++;
+            }
+
+            currentQ++;
+            if (currentQ < 10) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        });
+
+        function showResults() {
+            document.getElementById('quiz-box').style.display = 'none';
+            document.getElementById('result-box').style.display = 'block';
+            document.getElementById('final-score').innerText = score;
+            document.getElementById('correct-count').innerText = score;
+            document.getElementById('wrong-count').innerText = 10 - score;
+        }
+
+        // Timer
+        let time = 1800;
+        const timerEl = document.getElementById('timer');
+        setInterval(() => {
+            if (time > 0) {
+                time--;
+                const m = Math.floor(time / 60);
+                const s = time % 60;
+                timerEl.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+            } else {
+                showResults();
+            }
+        }, 1000);
+
+        loadQuestion();
+    </script>
+</body>
+
+</html>
