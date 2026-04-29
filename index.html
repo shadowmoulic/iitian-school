@@ -90,15 +90,38 @@
             background: #818cf8;
         }
 
-        @media (max-width: 768px) {
-            .slider-card {
-                width: 240px;
-                flex: 0 0 240px;
-                padding: 20px;
+        @media (max-width: 992px) {
+            .mobile-menu-btn {
+                display: block !important;
+                font-size: 1.8rem;
+                cursor: pointer;
+                color: var(--dark);
+                z-index: 1001;
             }
 
-            .slider-card img {
-                height: 180px;
+            #navbar .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2.5rem;
+                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 1000;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                display: flex !important;
+                left: auto;
+            }
+
+            #navbar .nav-links.active {
+                right: 0 !important;
+                left: auto;
             }
         }
 
@@ -185,16 +208,18 @@
             </a>
             <div class="nav-links">
                 <a href="#courses">Courses</a>
-                <a href="#about">About</a>
+                <a href="about">About</a>
+                <a href="videos">Videos</a>
                 <a href="#tests">Free Tests</a>
                 <a href="#apps">Mobile App</a>
-                <a href="#" class="btn-primary">My Course</a>
             </div>
-            <div class="mobile-menu-btn" style="display: none;">
-                <i data-lucide="menu"></i>
+            <div class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
             </div>
         </div>
     </nav>
+
+    <main>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -521,6 +546,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -542,7 +569,8 @@
                         <li><a href="#">Home</a></li>
                         <li><a href="#courses">Courses</a></li>
                         <li><a href="#tests">Free Tests</a></li>
-                        <li><a href="#about">About Us</a></li>
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="videos">Video Lectures</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -741,6 +769,20 @@
 
             window.addEventListener('resize', computeSizes);
             computeSizes();
+        });
+        
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        menuBtn?.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
         
         lucide.createIcons();

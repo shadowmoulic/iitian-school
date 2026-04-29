@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | IITian School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navbar style */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .btn-back {
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Hero */
+        .about-hero {
+            margin-top: 120px;
+            padding: 4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-img-wrap {
+            flex: 1;
+            max-width: 450px;
+            position: relative;
+        }
+
+        .about-img-wrap img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1.5;
+        }
+
+        .about-text h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .about-text .founder {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 5rem 0;
+            background: white;
+            border-radius: 40px;
+            margin-bottom: 5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1.5rem;
+            border-radius: 16px;
+            background: var(--bg);
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            .about-img-wrap {
+                max-width: 100%;
+            }
+        @media (max-width: 992px) {
+            .mobile-menu-btn {
+                display: block !important;
+                font-size: 1.8rem;
+                cursor: pointer;
+                color: var(--dark);
+                z-index: 1001;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2.5rem;
+                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 1000;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+        }
+        .mobile-menu-btn {
+            display: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        @media (max-width: 500px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-section {
+                padding: 3rem 1rem;
+                border-radius: 20px;
+            }
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            cursor: pointer;
+            z-index: 9999;
+            text-decoration: none;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #128C7E;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-popup {
+            position: fixed;
+            bottom: 6.5rem;
+            right: 2rem;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 9998;
+            border: 1px solid #e2e8f0;
+            animation: bounceIn 1s ease 2s both;
+            max-width: 250px;
+        }
+
+        .whatsapp-popup::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: white transparent;
+            display: block;
+            width: 0;
+        }
+
+        .whatsapp-popup p {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+            60% { opacity: 1; transform: translateY(-5px) scale(1.05); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar" style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); padding: 1.5rem 0;">
+        <div class="container nav-content" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html" class="logo" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; color: #0f172a; font-weight: 800; font-size: 1.5rem;">
+                <i data-lucide="graduation-cap" style="color: #6366f1;"></i>
+                IITian<span style="color: #6366f1;">school</span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html#courses" style="text-decoration: none; color: #0f172a; font-weight: 500;">Courses</a>
+                <a href="../about" style="text-decoration: none; color: #6366f1; font-weight: 700;">About</a>
+                <a href="../videos" style="text-decoration: none; color: #0f172a; font-weight: 500;">Videos</a>
+                <a href="../index.html#tests" style="text-decoration: none; color: #0f172a; font-weight: 500;">Free Tests</a>
+                <a href="../index.html#apps" style="text-decoration: none; color: #0f172a; font-weight: 500;">Mobile App</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="about-hero">
+            <div class="about-img-wrap">
+                <!-- Using provided asset path -->
+                <img src="../IITian's School_files/bhaskar.jpg" alt="Bhaskar Kumar Jha">
+            </div>
+            <div class="about-text">
+                <h1>Who We Are</h1>
+                <p class="founder">Bhaskar Kumar Jha (Founder & Director)</p>
+                <p>Welcome to IITian School, where we map competitive formulas appropriately. We align optimal exam strategies under standard conditions.</p>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 style="text-align: center; font-size: 2rem; font-weight: 800;">The IITian Advantage</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-circle-check feature-icon"></i>
+                        <h3 class="feature-title">Highly Experienced Teachers</h3>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-circle-check feature-icon"></i>
+                        <h3 class="feature-title">Brain Storming Tricks & Shortcuts</h3>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-circle-check feature-icon"></i>
+                        <h3 class="feature-title">Special Focus on High-Weightage Topics</h3>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-circle-check feature-icon"></i>
+                        <h3 class="feature-title">Earliest Course Completion</h3>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-circle-check feature-icon"></i>
+                        <h3 class="feature-title">Integrated Courses (Board + Entrance)</h3>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-circle-check feature-icon"></i>
+                        <h3 class="feature-title">One to One Doubt Assistance</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        menuBtn?.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-popup">
+        <p><i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.2rem;"></i> Need Help? Talk to Bhaskar Sir!</p>
+    </div>
+    <a href="https://wa.me/919692792825?text=Hello%20Bhaskar%20Sir%2C%20I%27m%20interested%20in%20enrolling%20for%20the%20courses%20at%20IITian%20School.%20Please%20guide%20me." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
