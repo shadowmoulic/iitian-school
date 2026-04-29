@@ -66,6 +66,7 @@
             border-radius: 12px;
             color: #94a3b8;
             text-decoration: none;
+            cursor: pointer;
             transition: 0.3s;
         }
 
@@ -130,6 +131,7 @@
             border-radius: 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             border: 1px solid #e2e8f0;
+            margin-bottom: 2rem;
         }
 
         table {
@@ -161,6 +163,20 @@
         .badge-success { background: #dcfce7; color: #15803d; }
         .badge-warning { background: #fef9c3; color: #a16207; }
 
+        .admin-view {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .admin-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @media (max-width: 1024px) {
             body {
                 flex-direction: column;
@@ -178,11 +194,11 @@
             <i data-lucide="graduation-cap"></i> IITian<span>school</span>
         </div>
         <div class="admin-nav">
-            <a href="#" class="admin-nav-item active"><i data-lucide="layout-dashboard"></i> Overview</a>
-            <a href="#" class="admin-nav-item"><i data-lucide="users"></i> Students</a>
-            <a href="#" class="admin-nav-item"><i data-lucide="book-open"></i> Courses</a>
-            <a href="#" class="admin-nav-item"><i data-lucide="award"></i> Results</a>
-            <a href="#" class="admin-nav-item"><i data-lucide="settings"></i> Settings</a>
+            <div class="admin-nav-item active" data-target="overview"><i data-lucide="layout-dashboard"></i> Overview</div>
+            <div class="admin-nav-item" data-target="students"><i data-lucide="users"></i> Students</div>
+            <div class="admin-nav-item" data-target="courses"><i data-lucide="book-open"></i> Courses</div>
+            <div class="admin-nav-item" data-target="results"><i data-lucide="award"></i> Results</div>
+            <div class="admin-nav-item" data-target="settings"><i data-lucide="settings"></i> Settings</div>
         </div>
     </div>
     
@@ -195,64 +211,210 @@
             <a href="../index.html" style="padding: 0.75rem 1.5rem; border: 1px solid var(--gray); border-radius: 12px; text-decoration: none; color: var(--dark); font-weight: 600;">Back to Site</a>
         </div>
         
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon" style="background: #e0e7ff; color: #6366f1;"><i data-lucide="users"></i></div>
-                <div>
-                    <span style="color: var(--gray); font-size: 0.9rem;">Total Students</span>
-                    <h2 style="margin-top: 0.2rem; font-size: 2rem;">1,248</h2>
+        <!-- Overview View -->
+        <div id="overview" class="admin-view active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #e0e7ff; color: #6366f1;"><i data-lucide="users"></i></div>
+                    <div>
+                        <span style="color: var(--gray); font-size: 0.9rem;">Total Students</span>
+                        <h2 style="margin-top: 0.2rem; font-size: 2rem;">1,248</h2>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #fef3c7; color: #d97706;"><i data-lucide="book-open"></i></div>
+                    <div>
+                        <span style="color: var(--gray); font-size: 0.9rem;">Active Batches</span>
+                        <h2 style="margin-top: 0.2rem; font-size: 2rem;">6</h2>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #dcfce7; color: #16a34a;"><i data-lucide="award"></i></div>
+                    <div>
+                        <span style="color: var(--gray); font-size: 0.9rem;">Mock Tests Given</span>
+                        <h2 style="margin-top: 0.2rem; font-size: 2rem;">4,812</h2>
+                    </div>
                 </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon" style="background: #fef3c7; color: #d97706;"><i data-lucide="book-open"></i></div>
-                <div>
-                    <span style="color: var(--gray); font-size: 0.9rem;">Active Batches</span>
-                    <h2 style="margin-top: 0.2rem; font-size: 2rem;">6</h2>
-                </div>
+
+            <div class="table-wrap">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Recent Test Performance</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Target</th>
+                            <th>Score</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pragya Choudhary</td>
+                            <td>JEE Advanced</td>
+                            <td><strong>10 / 10</strong></td>
+                            <td><span class="badge badge-success">Top Rank</span></td>
+                        </tr>
+                        <tr>
+                            <td>Abhijit Manu</td>
+                            <td>JEE Mains</td>
+                            <td><strong>8 / 10</strong></td>
+                            <td><span class="badge badge-success">Passed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Somsubhra Mukherjee</td>
+                            <td>NEET</td>
+                            <td><strong>6 / 10</strong></td>
+                            <td><span class="badge badge-warning">Review</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon" style="background: #dcfce7; color: #16a34a;"><i data-lucide="award"></i></div>
-                <div>
-                    <span style="color: var(--gray); font-size: 0.9rem;">Mock Tests Given</span>
-                    <h2 style="margin-top: 0.2rem; font-size: 2rem;">4,812</h2>
+        </div>
+
+        <!-- Students View -->
+        <div id="students" class="admin-view">
+            <div class="table-wrap">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Enrolled Students</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Target Goal</th>
+                            <th>Enrolled Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rahul Verma</td>
+                            <td>+91 98765 43210</td>
+                            <td>JEE 2026</td>
+                            <td>12-Apr-2025</td>
+                        </tr>
+                        <tr>
+                            <td>Sunita Sharma</td>
+                            <td>+91 91234 56789</td>
+                            <td>NEET 2026</td>
+                            <td>15-Apr-2025</td>
+                        </tr>
+                        <tr>
+                            <td>Arun Patel</td>
+                            <td>+91 98877 66554</td>
+                            <td>JEE 2025</td>
+                            <td>20-Apr-2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Courses View -->
+        <div id="courses" class="admin-view">
+            <div class="table-wrap">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Active Courses</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Target Exam</th>
+                            <th>Enrollment Cap</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Foundation Batch 2028</td>
+                            <td>JEE & NEET</td>
+                            <td>500 / 500</td>
+                            <td>₹1,999</td>
+                        </tr>
+                        <tr>
+                            <td>Crash Course 2026</td>
+                            <td>JEE Mains</td>
+                            <td>245 / 300</td>
+                            <td>₹999</td>
+                        </tr>
+                        <tr>
+                            <td>Ultimate Dropper Batch</td>
+                            <td>NEET</td>
+                            <td>312 / 400</td>
+                            <td>₹2,499</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Results View -->
+        <div id="results" class="admin-view">
+            <div class="table-wrap">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">All Test Logs</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Course Batch</th>
+                            <th>Marks</th>
+                            <th>Date Taken</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Amit Mishra</td>
+                            <td>JEE Dropper</td>
+                            <td>145 / 300</td>
+                            <td>Today</td>
+                        </tr>
+                        <tr>
+                            <td>Priya Das</td>
+                            <td>NEET Crash</td>
+                            <td>612 / 720</td>
+                            <td>Yesterday</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Settings View -->
+        <div id="settings" class="admin-view">
+            <div class="table-wrap">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Admin Settings</h3>
+                <p style="color: var(--gray); margin-bottom: 1.5rem;">Adjust settings to monitor site infrastructure.</p>
+                <div style="padding: 1rem; border-top: 1px solid #e2e8f0;">
+                    <strong style="display:block; margin-bottom: 0.5rem;">Supabase Integration Status</strong>
+                    <span class="badge badge-success">Connected via secure boundaries</span>
                 </div>
             </div>
         </div>
 
-        <div class="table-wrap">
-            <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Recent Test Performance</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Student Name</th>
-                        <th>Target</th>
-                        <th>Score</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Pragya Choudhary</td>
-                        <td>JEE Advanced</td>
-                        <td><strong>10 / 10</strong></td>
-                        <td><span class="badge badge-success">Top Rank</span></td>
-                    </tr>
-                    <tr>
-                        <td>Abhijit Manu</td>
-                        <td>JEE Mains</td>
-                        <td><strong>8 / 10</strong></td>
-                        <td><span class="badge badge-success">Passed</span></td>
-                    </tr>
-                    <tr>
-                        <td>Somsubhra Mukherjee</td>
-                        <td>NEET</td>
-                        <td><strong>6 / 10</strong></td>
-                        <td><span class="badge badge-warning">Review</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
-    <script>lucide.createIcons();</script>
+
+    <script>
+        lucide.createIcons();
+
+        // Simple Tab Switching Logic
+        const navItems = document.querySelectorAll('.admin-nav-item');
+        const views = document.querySelectorAll('.admin-view');
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const target = item.getAttribute('data-target');
+
+                // Toggle Active Nav
+                navItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+
+                // Toggle Active View
+                views.forEach(v => {
+                    v.classList.remove('active');
+                    if (v.id === target) {
+                        v.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
