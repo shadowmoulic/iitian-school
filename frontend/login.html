@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login — IITians School</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── Auth Page Layout ── */
+    body { background: var(--navy); min-height: 100vh; display: flex; flex-direction: column; }
+
+    .auth-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .auth-card {
+      background: var(--white);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 440px;
+      padding: 40px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+    }
+
+    .auth-logo {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .auth-logo span { color: var(--gold); }
+
+    /* ── Tabs ── */
+    .auth-tabs {
+      display: flex;
+      background: #f3f4f6;
+      border-radius: 10px;
+      padding: 4px;
+      margin-bottom: 28px;
+    }
+
+    .auth-tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .auth-tab.active {
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* ── Forms ── */
+    .auth-form { display: none; }
+    .auth-form.active { display: block; }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 7px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      background: #fafafa;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus {
+      border-color: var(--gold);
+      background: var(--white);
+    }
+
+    .form-group input::placeholder { color: #aaa; }
+
+    .btn-full {
+      width: 100%;
+      padding: 13px;
+      font-size: 1rem;
+      border-radius: 8px;
+      margin-top: 6px;
+    }
+
+    /* ── Messages ── */
+    .auth-message {
+      margin-top: 14px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: none;
+    }
+    .auth-message.error   { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; display: block; }
+    .auth-message.success { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; display: block; }
+
+    /* ── Loading spinner on button ── */
+    .btn-loading { opacity: 0.7; pointer-events: none; }
+
+    .divider {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin: 18px 0;
+      position: relative;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 42%;
+      height: 1px;
+      background: var(--border);
+    }
+    .divider::before { left: 0; }
+    .divider::after  { right: 0; }
+
+    footer { background: transparent; padding: 16px; }
+    footer a { color: rgba(255,255,255,0.5); }
+    footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+
+      <!-- Logo -->
+      <div class="auth-logo">IITians<span> School</span></div>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">Login</div>
+        <div class="auth-tab"        id="tab-signup" onclick="switchTab('signup')">Sign Up</div>
+      </div>
+
+      <!-- ── LOGIN FORM ── -->
+      <div class="auth-form active" id="form-login">
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Enter your password" />
+        </div>
+        <button class="btn btn-primary btn-full" id="btn-login" onclick="handleLogin()">
+          Login to Account
+        </button>
+        <div class="auth-message" id="login-msg"></div>
+      </div>
+
+      <!-- ── SIGNUP FORM ── -->
+      <div class="auth-form" id="form-signup">
+        <div class="form-group">
+          <label for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" placeholder="Your full name" />
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Email Address</label>
+          <input type="email" id="signup-email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" placeholder="Minimum 6 characters" />
+        </div>
+        <button class="btn btn-primary btn-full" id="btn-signup" onclick="handleSignup()">
+          Create Account
+        </button>
+        <div class="auth-message" id="signup-msg"></div>
+      </div>
+
+      <div class="divider">or</div>
+      <p style="text-align:center; font-size:0.85rem; color:var(--text-muted);">
+        <a href="index.html" style="color:var(--navy); font-weight:600;">← Back to Home</a>
+      </p>
+
+    </div>
+  </div>
+
+  <footer>
+    <p style="text-align:center; font-size:0.82rem;">
+      © 2025 <a href="index.html">IITians School</a>. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Scripts: CDN first, then our files -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.105.1/dist/umd/supabase.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+
+  <script>
+    // ── Tab switching logic (UI only) ──
+    function switchTab(tab) {
+      document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      document.getElementById('form-' + tab).classList.add('active');
+    }
+
+    // ── If URL has #signup, open signup tab automatically ──
+    if (window.location.hash === '#signup') switchTab('signup');
+  </script>
+
+</body>
+</html>

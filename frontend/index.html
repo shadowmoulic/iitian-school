@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IITians School</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <!-- <button onclick="testConnection()">Test Supabase Connection</button> -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <!-- Logo -->
+            <div class="navbar-logo">IITians<span> School</span></div>
+
+            <!-- Navigation Links -->
+            <ul class="navbar-links" id="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="#teachers">Teachers</a></li>
+                <li><a href="quiz.html">Mock Tests</a></li>
+            </ul>
+
+            <!-- GUEST: shown when NOT logged in -->
+            <div class="navbar-actions" id="nav-guest">
+                <a href="login.html" class="btn btn-outline"
+                    style="padding:9px 20px; border-color:rgba(255,255,255,0.4); font-size:0.88rem;">
+                    Login
+                </a>
+                <a href="login.html#signup" class="btn btn-primary" style="font-size:0.88rem;">
+                    Get Started
+                </a>
+            </div>
+
+            <!-- USER: shown when logged in (hidden by default) -->
+            <div class="navbar-actions" id="nav-user" style="display:none; gap:14px; align-items:center;">
+                <!-- Admin link — hidden by default, shown only for admins -->
+                <a href="admin.html" id="nav-admin"
+                    style="display:none; color:var(--gold); font-size:0.88rem; font-weight:600;">
+                    Admin
+                </a>
+
+                <a href="dashboard.html" class="btn btn-outline"
+                    style="padding:9px 20px; border-color:rgba(255,255,255,0.4); font-size:0.88rem;">
+                    Dashboard
+                </a>
+                <button onclick="handleLogout()" class="btn btn-primary" style="font-size:0.88rem; cursor:pointer;">
+                    Logout
+                </button>
+            </div>
+
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+            </button>
+        </div>
+
+        <div class="navbar-menu" id="navbar-menu" aria-hidden="true">
+            <ul class="navbar-links mobile">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="#teachers">Teachers</a></li>
+                <li><a href="quiz.html">Mock Tests</a></li>
+            </ul>
+            <div class="navbar-actions mobile" id="nav-guest-mobile">
+                <a href="login.html" class="btn btn-outline"
+                    style="padding:9px 20px; border-color:rgba(255,255,255,0.4); font-size:0.88rem;">
+                    Login
+                </a>
+                <a href="login.html#signup" class="btn btn-primary" style="font-size:0.88rem; padding:9px 20px;">
+                    Get Started
+                </a>
+            </div>
+            <div class="navbar-actions mobile" id="nav-user-mobile" style="display:none; gap:12px; align-items:center; flex-direction:column;">
+                <a href="admin.html" id="nav-admin-mobile"
+                    style="display:none; color:var(--gold); font-size:0.95rem; font-weight:600; width:100%; text-align:left;">
+                    Admin
+                </a>
+                <a href="dashboard.html" class="btn btn-outline"
+                    style="padding:9px 20px; border-color:rgba(255,255,255,0.4); font-size:0.88rem; width:100%; text-align:center;">
+                    Dashboard
+                </a>
+                <button onclick="handleLogout()" class="btn btn-primary" style="font-size:0.88rem; cursor:pointer; width:100%;">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="hero-badge">🎓 Trusted by 5000+ Students</div>
+        <h1>Learn Smarter.<br /><em>Achieve More.</em></h1>
+        <p>Expert-led courses, mock tests, and live mentorship — everything you need to crack your exam.</p>
+        <div class="hero-actions">
+            <a href="courses.html" class="btn btn-primary" style="font-size:1rem; padding:14px 36px;">Browse Courses</a>
+            <a href="login.html#signup" class="btn btn-outline" style="font-size:1rem; padding:14px 36px;">Join Free</a>
+        </div>
+    </section>
+
+    <!-- ===== STATS BAR ===== -->
+    <div class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <strong>5,200+</strong>
+                <span>Students Enrolled</span>
+            </div>
+            <div class="stat-item">
+                <strong>48</strong>
+                <span>Expert Teachers</span>
+            </div>
+            <div class="stat-item">
+                <strong>120+</strong>
+                <span>Courses Available</span>
+            </div>
+            <div class="stat-item">
+                <strong>94%</strong>
+                <span>Success Rate</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section class="section" style="background: var(--cream);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything You Need to Succeed</h2>
+                <p>A complete learning ecosystem designed for serious students.</p>
+            </div>
+            <div class="card-grid">
+
+                <div class="card">
+                    <div class="card-body">
+                        <div style="font-size:2rem; margin-bottom:12px;">🎥</div>
+                        <h3>Recorded Video Courses</h3>
+                        <p>Watch HD lectures anytime, anywhere. Pause, rewind, and learn at your own pace.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div style="font-size:2rem; margin-bottom:12px;">📝</div>
+                        <h3>Mock Test System</h3>
+                        <p>Practice with real exam-pattern tests. Get instant scores and detailed analysis.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div style="font-size:2rem; margin-bottom:12px;">👨‍🏫</div>
+                        <h3>Expert Teachers</h3>
+                        <p>Learn from educators with years of classroom and competitive exam coaching experience.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div style="font-size:2rem; margin-bottom:12px;">📊</div>
+                        <h3>Student Dashboard</h3>
+                        <p>Track your progress, revisit purchased courses, and monitor your test history.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div style="font-size:2rem; margin-bottom:12px;">🔒</div>
+                        <h3>Secure Access</h3>
+                        <p>Videos are locked behind payment. Only verified students get access to premium content.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div style="font-size:2rem; margin-bottom:12px;">💳</div>
+                        <h3>Easy Payments</h3>
+                        <p>Pay securely via Razorpay — UPI, cards, net banking all supported.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEACHERS SECTION ===== -->
+    <section class="section" id="teachers" style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Educators</h2>
+                <p>Learn from experienced teachers who are passionate about student success.</p>
+            </div>
+
+            <!-- Cards are injected here by JS -->
+            <div class="card-grid" id="teachers-grid">
+                <!-- Loading state -->
+                <div style="grid-column:1/-1; text-align:center;
+             color:var(--text-muted); padding:48px;">
+                    Loading teachers...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2025 <strong>IITians School</strong>. All rights reserved.</p>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <!--
+    IMPORTANT ORDER:
+    1. Supabase CDN (must come first — gives us window.supabase)
+    2. Our supabase.js (creates the client using window.supabase)
+    3. Page-specific JS files (auth.js, courses.js, etc.)
+  -->
+    <!-- Scripts: CDN first, then our files -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.105.1/dist/umd/supabase.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/teachers.js"></script>
+    <script>
+        const navbarToggle = document.getElementById('navbar-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        function closeMobileMenu() {
+            navbarMenu.classList.remove('active');
+            navbarToggle.setAttribute('aria-expanded', 'false');
+            navbarMenu.setAttribute('aria-hidden', 'true');
+        }
+
+        navbarToggle?.addEventListener('click', () => {
+            const isOpen = !navbarMenu.classList.contains('active');
+            navbarMenu.classList.toggle('active');
+            navbarToggle.setAttribute('aria-expanded', String(isOpen));
+            navbarMenu.setAttribute('aria-hidden', String(!isOpen));
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
+        });
+
+        // Run navbar update when page loads
+        updateNavbar();
+    </script>
+    <!-- index-specific JS (we'll add later as needed) -->
+
+</body>
+
+</html>

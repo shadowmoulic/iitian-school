@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel — IITians School</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <style>
+    /* ── Admin Layout ── */
+    body { background: #f1f5f9; }
+
+    .admin-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── Sidebar ── */
+    .admin-sidebar {
+      width: 240px;
+      background: var(--navy);
+      padding: 28px 0;
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-logo {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--white);
+      padding: 0 24px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 16px;
+    }
+    .sidebar-logo span { color: var(--gold); }
+
+    .sidebar-nav { list-style: none; }
+
+    .sidebar-nav li a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .sidebar-nav li a:hover,
+    .sidebar-nav li a.active {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      border-left: 3px solid var(--gold);
+      padding-left: 21px;
+    }
+
+    .sidebar-nav li a .icon { font-size: 1.1rem; }
+
+    .sidebar-bottom {
+      margin-top: auto;
+      padding: 16px 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ── Main Content ── */
+    .admin-main {
+      margin-left: 240px;
+      flex: 1;
+      padding: 36px;
+    }
+
+    .admin-header {
+      margin-bottom: 32px;
+    }
+
+    .admin-header h1 {
+      font-size: 1.8rem;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .admin-header p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* ── Section Panels ── */
+    .admin-section { display: none; }
+    .admin-section.active { display: block; }
+
+    /* ── Card Panel ── */
+    .panel {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    .panel h2 {
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 22px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Form inside panel ── */
+    .admin-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .admin-form .span-full { grid-column: 1 / -1; }
+
+    .admin-form label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .admin-form input,
+    .admin-form textarea,
+    .admin-form select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.2s;
+      background: #fafafa;
+    }
+
+    .admin-form input:focus,
+    .admin-form textarea:focus,
+    .admin-form select:focus {
+      border-color: var(--gold);
+      background: var(--white);
+    }
+
+    .admin-form textarea { resize: vertical; min-height: 90px; }
+
+    /* ── Table ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .data-table th {
+      background: #f8fafc;
+      padding: 11px 14px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-dark);
+      vertical-align: middle;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: #f9fafb; }
+
+    .teacher-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .badge-blue { background: #eff6ff; color: #2563eb; }
+
+    /* ── Admin message ── */
+    .admin-msg {
+      padding: 11px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-top: 14px;
+      display: none;
+    }
+    .admin-msg.error   { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; display:block; }
+    .admin-msg.success { background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; display:block; }
+
+    /* ── Photo preview ── */
+    .photo-preview {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      display: none;
+      margin-top: 10px;
+    }
+
+    .btn-danger {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-danger:hover { background: #fee2e2; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .admin-sidebar {
+        width: 200px;
+        z-index: 100;
+        transform: translateX(-200px);
+        transition: transform 0.3s ease;
+      }
+
+      .admin-sidebar.active {
+        transform: translateX(0);
+      }
+
+      .admin-main {
+        margin-left: 0;
+        padding: 20px 16px;
+      }
+
+      .admin-header h1 {
+        font-size: 1.4rem;
+      }
+
+      .panel {
+        padding: 20px;
+      }
+
+      .data-table {
+        font-size: 0.8rem;
+      }
+
+      .data-table th,
+      .data-table td {
+        padding: 8px 6px;
+      }
+
+      .admin-nav-toggle {
+        display: inline-flex !important;
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 101;
+        background: var(--navy);
+        border: none;
+        color: var(--white);
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .admin-nav-toggle span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--white);
+        border-radius: 2px;
+        position: relative;
+      }
+
+      .admin-nav-toggle span::before,
+      .admin-nav-toggle span::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background: var(--white);
+        border-radius: 2px;
+        left: 0;
+      }
+
+      .admin-nav-toggle span::before {
+        top: -6px;
+      }
+
+      .admin-nav-toggle span::after {
+        top: 6px;
+      }
+
+      .admin-layout {
+        margin-top: 60px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .admin-main {
+        padding: 16px 12px;
+      }
+
+      .panel {
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<button class="admin-nav-toggle" id="admin-nav-toggle" style="display:none;">
+  <span></span>
+</button>
+
+<div class="admin-layout" id="admin-layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-logo">IITians<span> School</span> <br/>
+      <small style="font-size:0.7rem; color:rgba(255,255,255,0.4); font-family:var(--font-body);">Admin Panel</small>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#" class="active" onclick="showSection('teachers', this)">
+          <span class="icon">👨‍🏫</span> Teachers
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="showSection('courses', this)">
+          <span class="icon">🎓</span> Courses
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="showSection('tests', this)">
+          <span class="icon">📝</span> Mock Tests
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="showSection('purchases', this)">
+          <span class="icon">💳</span> Purchases
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-bottom">
+      <a href="index.html" style="color:rgba(255,255,255,0.5); font-size:0.85rem;">
+        ← Back to Site
+      </a>
+    </div>
+  </aside>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="admin-main">
+
+    <!-- TEACHERS SECTION -->
+    <div class="admin-section active" id="section-teachers">
+      <div class="admin-header">
+        <h1>Teachers</h1>
+        <p>Add and manage teaching staff.</p>
+      </div>
+
+      <!-- Add Teacher Form -->
+      <div class="panel">
+        <h2>➕ Add New Teacher</h2>
+        <div class="admin-form">
+
+          <div>
+            <label>Full Name *</label>
+            <input type="text" id="t-name" placeholder="e.g. Dr. Anjali Sharma"/>
+          </div>
+
+          <div>
+            <label>Subject *</label>
+            <input type="text" id="t-subject" placeholder="e.g. Mathematics"/>
+          </div>
+
+          <div>
+            <label>Years of Experience</label>
+            <input type="number" id="t-exp" placeholder="e.g. 8" min="0"/>
+          </div>
+
+          <div>
+            <label>Photo (optional)</label>
+            <input type="file" id="t-photo" accept="image/*" onchange="previewPhoto(this)"/>
+            <img id="photo-preview" class="photo-preview" alt="Preview"/>
+          </div>
+
+          <div class="span-full">
+            <label>Bio (short description)</label>
+            <textarea id="t-bio" placeholder="e.g. 8 years of IIT-JEE coaching experience..."></textarea>
+          </div>
+
+          <div class="span-full">
+            <button class="btn btn-primary" id="btn-add-teacher" onclick="addTeacher()">
+              Add Teacher
+            </button>
+            <div class="admin-msg" id="teacher-msg"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Teachers List -->
+      <div class="panel">
+        <h2>📋 All Teachers</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Photo</th>
+              <th>Name</th>
+              <th>Subject</th>
+              <th>Experience</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="teachers-table-body">
+            <tr><td colspan="5" style="text-align:center; color:var(--text-muted); padding:28px;">
+              Loading teachers...
+            </td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- COURSES SECTION (placeholder — built in Step 5) -->
+    <!-- <div class="admin-section" id="section-courses">
+      <div class="admin-header">
+        <h1>Courses</h1>
+        <p>This section will be built in Step 5.</p>
+      </div>
+      <div class="panel">
+        <p style="color:var(--text-muted); text-align:center; padding:40px;">
+          🚧 Coming in Step 5
+        </p>
+      </div>
+    </div> -->
+
+    <!-- COURSES SECTION -->
+    <div class="admin-section" id="section-courses">
+      <div class="admin-header">
+        <h1>Courses</h1>
+        <p>Add and manage courses offered by the institute.</p>
+      </div>
+
+      <!-- Add Course Form -->
+      <div class="panel">
+        <h2>➕ Add New Course</h2>
+        <div class="admin-form">
+
+          <div class="span-full">
+            <label>Course Title *</label>
+            <input type="text" id="c-title" placeholder="e.g. Complete Mathematics for JEE"/>
+          </div>
+
+          <div>
+            <label>Price (in ₹) *</label>
+            <input type="number" id="c-price" placeholder="e.g. 499" min="0"/>
+            <small style="color:var(--text-muted);font-size:0.78rem;">
+              Enter 0 for free course
+            </small>
+          </div>
+
+          <div>
+            <label>Assigned Teacher</label>
+            <select id="c-teacher">
+              <option value="">— Select Teacher —</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Thumbnail Image</label>
+            <input type="file" id="c-thumbnail" accept="image/*"
+                   onchange="previewThumbnail(this)"/>
+            <img id="thumbnail-preview"
+                 style="display:none;width:120px;height:72px;object-fit:cover;
+                        border-radius:6px;margin-top:10px;border:1px solid var(--border);"
+                 alt="Preview"/>
+          </div>
+
+          <div>
+            <label>Publish Immediately?</label>
+            <select id="c-published">
+              <option value="false">No — Save as Draft</option>
+              <option value="true">Yes — Publish Now</option>
+            </select>
+          </div>
+
+          <div class="span-full">
+            <label>Description</label>
+            <textarea id="c-desc"
+              placeholder="What will students learn? Who is it for?"></textarea>
+          </div>
+
+          <div class="span-full">
+            <button class="btn btn-primary" id="btn-add-course" onclick="addCourse()">
+              Add Course
+            </button>
+            <div class="admin-msg" id="course-msg"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Courses List -->
+      <div class="panel">
+        <h2>📋 All Courses</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Teacher</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="courses-table-body">
+            <tr><td colspan="5" style="text-align:center;
+              color:var(--text-muted);padding:28px;">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TESTS SECTION (placeholder) -->
+    <div class="admin-section" id="section-tests">
+      <div class="admin-header"><h1>Mock Tests</h1><p>Coming in Step 9.</p></div>
+      <div class="panel"><p style="color:var(--text-muted);text-align:center;padding:40px;">🚧 Coming in Step 9</p></div>
+    </div>
+
+    <!-- PURCHASES SECTION (placeholder) -->
+    <div class="admin-section" id="section-purchases">
+      <div class="admin-header"><h1>Purchases</h1><p>Coming in Step 7.</p></div>
+      <div class="panel"><p style="color:var(--text-muted);text-align:center;padding:40px;">🚧 Coming in Step 7</p></div>
+    </div>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/admin.js"></script>
+<script>
+  function showSection(name, el) {
+    document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById('section-' + name).classList.add('active');
+    el.classList.add('active');
+    event.preventDefault();
+
+    // Load the right data when switching tabs
+    if (name === 'courses') {
+      loadTeacherDropdown(); // populate teacher select
+      loadCourses();
+    }
+  }
+
+  function previewPhoto(input) {
+    const preview = document.getElementById('photo-preview');
+    if (input.files && input.files[0]) {
+      preview.src = URL.createObjectURL(input.files[0]);
+      preview.style.display = 'block';
+    }
+  }
+
+  // ── Mobile Sidebar Toggle ──
+  const adminNavToggle = document.getElementById('admin-nav-toggle');
+  const adminSidebar = document.querySelector('.admin-sidebar');
+
+  function closeAdminSidebar() {
+    adminSidebar?.classList.remove('active');
+    adminNavToggle?.setAttribute('aria-expanded', 'false');
+  }
+
+  adminNavToggle?.addEventListener('click', () => {
+    const isOpen = !adminSidebar?.classList.contains('active');
+    adminSidebar?.classList.toggle('active');
+    adminNavToggle?.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Close sidebar when a link is clicked
+  document.querySelectorAll('.sidebar-nav a').forEach(link => {
+    link.addEventListener('click', closeAdminSidebar);
+  });
+
+  // Close sidebar when window resizes beyond mobile breakpoint
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      closeAdminSidebar();
+    }
+  });
+
+  requireAdmin().then(user => {
+    if (user) loadTeachers();
+  });
+</script>
+
+</body>
+</html>
