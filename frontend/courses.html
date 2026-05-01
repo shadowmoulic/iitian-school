@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Courses — IITians School</title>
-  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/styles.css" />
   <style>
     /* ── Filter Bar ── */
     .filter-bar {
@@ -12,7 +13,8 @@
       border-bottom: 1px solid var(--border);
       padding: 18px 24px;
       position: sticky;
-      top: 68px; /* below navbar */
+      top: 68px;
+      /* below navbar */
       z-index: 50;
     }
 
@@ -37,7 +39,9 @@
       transition: border-color 0.2s;
     }
 
-    .filter-inner input:focus { border-color: var(--gold); }
+    .filter-inner input:focus {
+      border-color: var(--gold);
+    }
 
     .filter-inner select {
       padding: 9px 14px;
@@ -70,7 +74,7 @@
     }
 
     .page-hero p {
-      color: rgba(255,255,255,0.7);
+      color: rgba(255, 255, 255, 0.7);
       font-size: 1rem;
     }
 
@@ -95,7 +99,7 @@
 
     .course-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(15,30,60,0.15);
+      box-shadow: 0 12px 32px rgba(15, 30, 60, 0.15);
     }
 
     /* Thumbnail */
@@ -122,7 +126,7 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
       color: white;
       padding: 4px 10px;
       border-radius: 50px;
@@ -221,10 +225,17 @@
       color: var(--text-muted);
     }
 
-    .state-box .state-icon { font-size: 3rem; margin-bottom: 12px; }
-    .state-box p { font-size: 0.95rem; }
+    .state-box .state-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .state-box p {
+      font-size: 0.95rem;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- NAVBAR -->
@@ -239,14 +250,17 @@
       </ul>
       <div class="navbar-actions" id="nav-guest">
         <a href="login.html" class="btn btn-outline"
-           style="padding:9px 20px;border-color:rgba(255,255,255,0.4);font-size:0.88rem;">Login</a>
+          style="padding:9px 20px;border-color:rgba(255,255,255,0.4);font-size:0.88rem;">Login</a>
         <a href="login.html#signup" class="btn btn-primary" style="font-size:0.88rem;">Get Started</a>
       </div>
       <div class="navbar-actions" id="nav-user" style="display:none; gap:14px; align-items:center;">
         <!-- <span id="nav-username" style="color:rgba(255,255,255,0.75); font-size:0.9rem; font-weight:500;"></span> -->
-        <a href="admin.html" id="nav-admin" style="display:none; color:var(--gold); font-size:0.88rem; font-weight:600;">Admin</a>
-        <a href="dashboard.html" class="btn btn-outline" style="padding:9px 20px; border-color:rgba(255,255,255,0.4); font-size:0.88rem;">Dashboard</a>
-        <button onclick="handleLogout()" class="btn btn-primary" style="font-size:0.88rem; cursor:pointer;">Logout</button>
+        <a href="admin.html" id="nav-admin"
+          style="display:none; color:var(--gold); font-size:0.88rem; font-weight:600;">Admin</a>
+        <a href="dashboard.html" class="btn btn-outline"
+          style="padding:9px 20px; border-color:rgba(255,255,255,0.4); font-size:0.88rem;">Dashboard</a>
+        <button onclick="handleLogout()" class="btn btn-primary"
+          style="font-size:0.88rem; cursor:pointer;">Logout</button>
       </div>
       <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span>
@@ -260,13 +274,18 @@
         <li><a href="quiz.html">Mock Tests</a></li>
       </ul>
       <div class="navbar-actions mobile" id="nav-guest-mobile">
-        <a href="login.html" class="btn btn-outline" style="padding:9px 20px;border-color:rgba(255,255,255,0.4);font-size:0.88rem;">Login</a>
+        <a href="login.html" class="btn btn-outline"
+          style="padding:9px 20px;border-color:rgba(255,255,255,0.4);font-size:0.88rem;">Login</a>
         <a href="login.html#signup" class="btn btn-primary" style="font-size:0.88rem; padding:9px 20px;">Get Started</a>
       </div>
-      <div class="navbar-actions mobile" id="nav-user-mobile" style="display:none; gap:12px; align-items:center; flex-direction:column;">
-        <a href="admin.html" id="nav-admin-mobile" style="display:none; color:var(--gold); font-size:0.95rem; font-weight:600; width:100%; text-align:left;">Admin</a>
-        <a href="dashboard.html" class="btn btn-outline" style="padding:9px 20px; border-color:rgba(255,255,255,0.4); font-size:0.88rem; width:100%; text-align:center;">Dashboard</a>
-        <button onclick="handleLogout()" class="btn btn-primary" style="font-size:0.88rem; cursor:pointer; width:100%;">Logout</button>
+      <div class="navbar-actions mobile" id="nav-user-mobile"
+        style="display:none; gap:12px; align-items:center; flex-direction:column;">
+        <a href="admin.html" id="nav-admin-mobile"
+          style="display:none; color:var(--gold); font-size:0.95rem; font-weight:600; width:100%; text-align:left;">Admin</a>
+        <a href="dashboard.html" class="btn btn-outline"
+          style="padding:9px 20px; border-color:rgba(255,255,255,0.4); font-size:0.88rem; width:100%; text-align:center;">Dashboard</a>
+        <button onclick="handleLogout()" class="btn btn-primary"
+          style="font-size:0.88rem; cursor:pointer; width:100%;">Logout</button>
       </div>
     </div>
   </nav>
@@ -280,9 +299,7 @@
   <!-- FILTER BAR -->
   <div class="filter-bar">
     <div class="filter-inner">
-      <input type="text" id="search-input"
-             placeholder="🔍  Search courses..."
-             oninput="filterCourses()"/>
+      <input type="text" id="search-input" placeholder="🔍  Search courses..." oninput="filterCourses()" />
       <select id="subject-filter" onchange="filterCourses()">
         <option value="">All Subjects</option>
       </select>
@@ -302,7 +319,7 @@
 
   <footer style="background:var(--navy);color:rgba(255,255,255,0.5);
                  text-align:center;padding:28px;font-size:0.85rem;">
-    © 2025 <strong style="color:var(--gold);">IITians School</strong>. All rights reserved.
+    © 2026 <strong style="color:var(--gold);">IITians School</strong>. All rights reserved.
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -337,4 +354,5 @@
     });
   </script>
 </body>
+
 </html>
