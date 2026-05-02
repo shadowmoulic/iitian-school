@@ -28,7 +28,7 @@ function injectNavbar(basePath) {
 
     const currentPath = window.location.pathname;
     const isAbout = currentPath.includes('/about/');
-    const isVideos = currentPath.includes('/videos/') || currentPath.includes('videos.html');
+    const isVideos = currentPath.includes('/videos/') || currentPath.includes('videos.html') || currentPath.includes('video2.html');
 
     const navbarHTML = `
     <nav id="navbar">
@@ -66,10 +66,8 @@ function injectFooter(basePath) {
                     <p>IITian School is a leading educational platform committed to providing high-quality coaching
                         services with a dedicated focus on academic excellence.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/919692792825" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.youtube.com/@iitianschoolonline" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">

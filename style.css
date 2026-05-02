@@ -408,6 +408,7 @@ nav.scrolled {
     margin-bottom: 0.5rem;
     background: var(--grad);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
