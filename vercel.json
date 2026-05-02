@@ -1,5 +1,8 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    { "source": "/iitianschool/:path*", "destination": "/:path*" }
+  ],
   "routes": [
     { "handle": "filesystem" }
   ]
