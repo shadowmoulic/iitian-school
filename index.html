@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IITian School | Premium Coaching for JEE & NEET</title>
-    <link rel="icon" type="image/png" href="https://demo-work-alpha.vercel.app/iitianschool/favicon.png">
-    <link rel="stylesheet" href="https://demo-work-alpha.vercel.app/iitianschool/style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -90,134 +90,13 @@
             background: #818cf8;
         }
 
-        @media (max-width: 992px) {
-            .mobile-menu-btn {
-                display: block !important;
-                font-size: 1.8rem;
-                cursor: pointer;
-                color: var(--dark);
-                z-index: 1001;
-            }
-
-            #navbar .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                max-width: 300px;
-                height: 100vh;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(12px);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 2.5rem;
-                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                z-index: 1000;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-                display: flex !important;
-                left: auto;
-            }
-
-            #navbar .nav-links.active {
-                right: 0 !important;
-                left: auto;
-            }
-        }
-
-        /* Floating WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-            cursor: pointer;
-            z-index: 9999;
-            text-decoration: none;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1) translateY(-5px);
-            background: #128C7E;
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
-        }
-
-        .whatsapp-popup {
-            position: fixed;
-            bottom: 6.5rem;
-            right: 2rem;
-            background: white;
-            padding: 1rem 1.5rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            z-index: 9998;
-            border: 1px solid #e2e8f0;
-            animation: bounceIn 1s ease 2s both;
-            max-width: 250px;
-        }
-
-        .whatsapp-popup::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            right: 20px;
-            border-width: 10px 10px 0;
-            border-style: solid;
-            border-color: white transparent;
-            display: block;
-            width: 0;
-        }
-
-        .whatsapp-popup p {
-            margin: 0;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #1e293b;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        @keyframes bounceIn {
-            0% { opacity: 0; transform: translateY(20px) scale(0.9); }
-            60% { opacity: 1; transform: translateY(-5px) scale(1.05); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
     </style>
 </head>
 
 <body>
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="container nav-content">
-            <a href="#" class="logo">
-                <i data-lucide="graduation-cap" class="text-primary"></i>
-                IITian<span>school</span>
-            </a>
-            <div class="nav-links">
-                <a href="#courses">Courses</a>
-                <a href="about">About</a>
-                <a href="videos">Videos</a>
-                <a href="#tests">Free Tests</a>
-                <a href="#apps">Mobile App</a>
-            </div>
-            <div class="mobile-menu-btn">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
-    </nav>
+    <div id="nav-placeholder"></div>
 
     <main>
 
@@ -264,6 +143,21 @@
                 <div class="floating-card glass bottom-card">
                     <i data-lucide="book-open" style="color: #6366f1;"></i>
                     <span>Study Materials</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Update -->
+    <section id="latest-update" class="latest-update-section">
+        <div class="container">
+            <div class="latest-update-card glass">
+                <div class="update-left">
+                    <h2 class="update-title">Latest Update</h2>
+                    <p class="update-sub">Important announcement from IITian's School</p>
+                </div>
+                <div class="update-right">
+                    <div class="update-number" aria-live="polite">Upto 100% scholarship for 26-28 batch</div>
                 </div>
             </div>
         </div>
@@ -339,6 +233,55 @@
                     <h3>Performance Tracking</h3>
                     <p>Detailed analytics and personalized feedback on every test you take.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Learning Resources -->
+    <section id="learning-resources" class="learning-resources">
+        <div class="container">
+            <div class="section-header">
+                <span class="sub-header">Tools for Success</span>
+                <h2>Learning Resources</h2>
+                <p>Chapterwise practice questions, DPPs, Test series and PYQs</p>
+            </div>
+            <div class="lr-grid" data-stagger-parent>
+                <a href="https://drive.google.com/drive/folders/1m7u-0k3jYnkPdStDFPBJdHWfm4DlqNwQ?usp=drive_link" target="_blank" class="lr-card-link" data-stagger>
+                    <div class="lr-card glass">
+                        <span class="coming-soon">Coming Soon</span>
+                        <div class="lr-card-content">
+                            <h3>Chapterwise Practice</h3>
+                            <p>Structured practice arranged chapter by chapter to strengthen fundamentals.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1HLj_1eFLBcb0JoL6ArHmqINci6FDYW3c?usp=drive_link" target="_blank" class="lr-card-link" data-stagger>
+                    <div class="lr-card glass">
+                        <span class="coming-soon">Coming Soon</span>
+                        <div class="lr-card-content">
+                            <h3>DPPs</h3>
+                            <p>Daily Practice Problems to build speed and accuracy over time.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1WWnPNxEn620nwDm4jYEf6ZNPNkL1VcOx?usp=drive_link" target="_blank" class="lr-card-link" data-stagger>
+                    <div class="lr-card glass">
+                        <span class="coming-soon">Coming Soon</span>
+                        <div class="lr-card-content">
+                            <h3>Test Series</h3>
+                            <p>Full-length & sectional tests to simulate actual exam conditions.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1KhrClSTUpHbFg8iXaD-SPFO9xCa55svF?usp=drive_link" target="_blank" class="lr-card-link" data-stagger>
+                    <div class="lr-card glass">
+                        <span class="coming-soon">Coming Soon</span>
+                        <div class="lr-card-content">
+                            <h3>PYQs</h3>
+                            <p>Previous years' questions for targeted revision and pattern analysis.</p>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -516,21 +459,13 @@
                 <div class="app-grid">
                     <div class="app-content">
                         <h2>Learn Anywhere, <span class="gradient-text">Anytime.</span></h2>
-                        <p>Get our official app for a seamless mobile learning experience. Download now on Play Store
-                            and Windows.</p>
+                        <p>Get our official app for a seamless mobile learning experience. Download now on Play Store.</p>
                         <div class="app-btns">
-                            <a href="#" class="app-btn">
+                            <a href="https://play.google.com/store/apps/details?id=com.lct.mlkpbvtgh" class="app-btn" target="_blank">
                                 <i class="fab fa-google-play"></i>
                                 <div class="app-btn-text">
                                     <span>Get it on</span>
                                     <strong>Google Play</strong>
-                                </div>
-                            </a>
-                            <a href="#" class="app-btn">
-                                <i class="fab fa-windows"></i>
-                                <div class="app-btn-text">
-                                    <span>Download for</span>
-                                    <strong>Windows</strong>
                                 </div>
                             </a>
                         </div>
@@ -548,52 +483,7 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <a href="#" class="logo">IITian<span>school</span></a>
-                    <p>IITian School is a leading educational platform committed to providing high-quality coaching
-                        services with a dedicated focus on academic excellence.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#courses">Courses</a></li>
-                        <li><a href="#tests">Free Tests</a></li>
-                        <li><a href="about">About Us</a></li>
-                        <li><a href="videos">Video Lectures</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Disclaimer</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Contact Us</h4>
-                    <p><i data-lucide="map-pin"></i> Old Town Tankapani Road Near Appolo Pharmacy, Bhubaneswar</p>
-                    <p><i data-lucide="mail"></i> iitianschoolonline@gmail.com</p>
-                    <p><i data-lucide="phone"></i> +91 9827618994</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 IITian School. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <!-- Auth Modal -->
     <div id="auth-modal" class="modal">
@@ -699,102 +589,8 @@
         </div>
     </div>
 
-    <script src="https://demo-work-alpha.vercel.app/iitianschool/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const track = document.querySelector('.slider-track');
-            const container = document.querySelector('.slider-container');
-            if (!track || !container) return;
-
-            const prevBtn = container.querySelector('.slider-btn.prev');
-            const nextBtn = container.querySelector('.slider-btn.next');
-
-            let slides = Array.from(track.children);
-            const originalCount = slides.length;
-
-            // Clone slides once to the end to allow seamless forward sliding
-            slides.forEach((s) => track.appendChild(s.cloneNode(true)));
-
-            let index = 0; 
-            let slideWidth = 0;
-            let gap = parseFloat(getComputedStyle(track).gap) || 30;
-            let isTransitioning = false;
-
-            function computeSizes() {
-                const card = track.querySelector('.slider-card');
-                if (!card) return;
-                gap = parseFloat(getComputedStyle(track).gap) || 30;
-                slideWidth = card.getBoundingClientRect().width + gap;
-                track.style.transition = 'none';
-                track.style.transform = `translateX(${-index * slideWidth}px)`;
-            }
-
-            function setTranslate(px, withTransition = true) {
-                track.style.transition = withTransition ? 'transform 0.4s ease' : 'none';
-                track.style.transform = `translateX(${px}px)`;
-            }
-
-            function next() {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                index += 1;
-                setTranslate(-index * slideWidth, true);
-            }
-
-            function prev() {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                index -= 1;
-                setTranslate(-index * slideWidth, true);
-            }
-
-            track.addEventListener('transitionend', () => {
-                isTransitioning = false;
-                if (index >= originalCount) {
-                    index = 0;
-                    setTranslate(0, false);
-                } else if (index < 0) {
-                    index = originalCount - 1;
-                    setTranslate(-index * slideWidth, false);
-                }
-            });
-
-            nextBtn?.addEventListener('click', (e) => { e.preventDefault(); next(); });
-            prevBtn?.addEventListener('click', (e) => { e.preventDefault(); prev(); });
-
-            let autoPlayInterval = setInterval(next, 3000);
-
-            container.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-            container.addEventListener('mouseleave', () => autoPlayInterval = setInterval(next, 3000));
-
-            window.addEventListener('resize', computeSizes);
-            computeSizes();
-        });
-        
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        const navItems = document.querySelectorAll('.nav-links a');
-
-        menuBtn?.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        lucide.createIcons();
-    </script>
-
-    <!-- Floating WhatsApp Button -->
-    <div class="whatsapp-popup">
-        <p><i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.2rem;"></i> Need Help? Talk to Bhaskar Sir!</p>
-    </div>
-    <a href="https://wa.me/919692792825?text=Hello%20Bhaskar%20Sir%2C%20I%27m%20interested%20in%20enrolling%20for%20the%20courses%20at%20IITian%20School.%20Please%20guide%20me." class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <script src="script.js"></script>
+    <script src="components.js"></script>
 </body>
 
 </html>

@@ -14,61 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'auto';
     };
 
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            const isActive = navLinks.classList.contains('active');
-
-            if (isActive) {
-                icon.setAttribute('data-lucide', 'x');
-                // Stagger links
-                document.querySelectorAll('.nav-links a').forEach((link, i) => {
-                    link.style.opacity = '0';
-                    link.style.transform = 'translateY(10px)';
-                    setTimeout(() => {
-                        link.style.transition = '0.3s ease ' + (i * 0.05) + 's';
-                        link.style.opacity = '1';
-                        link.style.transform = 'translateY(0)';
-                    }, 100);
-                });
-            } else {
-                icon.setAttribute('data-lucide', 'menu');
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.style.opacity = '';
-                    link.style.transform = '';
-                    link.style.transition = '';
-                });
-            }
-            lucide.createIcons();
-        });
-    }
-
-    // Close mobile menu when a link is clicked
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            const icon = mobileMenuBtn?.querySelector('i');
-            if (icon) {
-                icon.setAttribute('data-lucide', 'menu');
-                lucide.createIcons();
-            }
-        });
-    });
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
     // Auth Tabs Logic
     const authTabs = document.querySelectorAll('.auth-tab');
     const authForms = document.querySelectorAll('.auth-form');
@@ -85,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Open Auth Modal from Nav
-    document.querySelector('.btn-primary[href="#"]').addEventListener('click', (e) => {
+    document.querySelector('.btn-primary[href="#"]')?.addEventListener('click', (e) => {
         e.preventDefault();
         openModal(authModal);
     });
@@ -113,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusContent = paymentStatus.querySelector('.status-content');
     const successContent = paymentStatus.querySelector('.success-content');
 
-    processBtn.addEventListener('click', () => {
+    processBtn?.addEventListener('click', () => {
         paymentStatus.classList.add('active');
 
         // Simulating 3 seconds of "processing"
@@ -164,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     observer.unobserve(target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0 });
 
         // Observe parents with staggered children
         document.querySelectorAll('[data-stagger-parent]').forEach(el => observer.observe(el));

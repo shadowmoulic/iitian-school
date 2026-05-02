@@ -6,265 +6,76 @@
     <title>Video Lectures & Resources | IITian School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --primary: #6366f1;
-            --primary-hover: #4f46e5;
-            --bg: #f8fafc;
-            --dark: #0f172a;
-            --gray: #64748b;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--dark);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Navbar style */
-        nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            border-bottom: 1px solid #e2e8f0;
-            padding: 1rem 0;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            text-decoration: none;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .btn-back {
-            padding: 0.75rem 1.5rem;
-            background: var(--primary);
-            color: white;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .btn-back:hover {
-            background: var(--primary-hover);
-        }
-
-        /* Header */
-        .video-header {
-            margin-top: 120px;
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        .video-header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .video-header p {
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-
-        /* Video Grid */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 5rem;
-        }
-
-        .video-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            border: 1px solid #e2e8f0;
-            transition: 0.3s;
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        .video-frame {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-        }
-
-        .video-frame iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .video-info {
-            padding: 1.5rem;
-        }
-
-        .video-info h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .video-info p {
-            color: var(--gray);
-            font-size: 0.95rem;
-        }
-
-        /* Call To Action */
-        .cta-section {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 2rem;
-            border-radius: 24px;
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .cta-section h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            color: #94a3b8;
-            margin-bottom: 2rem;
-        }
-
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            background: #25D366;
-            color: white;
-            border-radius: 14px;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: 0.3s;
-        }
-
-        .btn-whatsapp:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-        }
-    </style>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="container nav-content">
-            <a href="../index.html" class="logo">
-                <i data-lucide="graduation-cap"></i> IITian<span>school</span>
-            </a>
-            <a href="../index.html" class="btn-back">Back to Home</a>
-        </div>
-    </nav>
+    <div id="nav-placeholder"></div>
 
-    <header class="video-header">
+    <header class="video-header" style="margin-top: 120px; text-align: center; padding: 3rem 0;">
         <div class="container">
-            <h1>Free <span style="color: var(--primary);">Video Lectures</span></h1>
+            <h1>Our <span class="gradient-text">Video Tutorials</span></h1>
             <p>Access high-quality revision videos direct from the expertise of Bhaskar Sir.</p>
         </div>
     </header>
 
     <main class="container">
-        <div class="video-grid">
-            <!-- Video 1 -->
-            <div class="video-card">
-                <div class="video-frame">
-                    <iframe src="https://www.youtube.com/embed/hpkkCPmTKgg" title="Aeroplane Wind Problem" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Aeroplane Wind Problem</h3>
-                    <p>Advanced physics tricks to solve relative velocity equations.</p>
-                </div>
-            </div>
-
-            <!-- Video 2 -->
-            <div class="video-card">
-                <div class="video-frame">
-                    <iframe src="https://www.youtube.com/embed/6IGsBm2oS5I" title="Rain Man Problem" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Rain Man Problem</h3>
-                    <p>Vector representation shortcuts for quick calculation.</p>
-                </div>
-            </div>
-
-            <!-- Video 3 -->
-            <div class="video-card">
-                <div class="video-frame">
-                    <iframe src="https://www.youtube.com/embed/_Vbkwmf-Po4" title="Vernier Caliper" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Vernier Caliper Concepts</h3>
-                    <p>Understand zero errors and least count methodology.</p>
-                </div>
-            </div>
-
-            <!-- Video 4 -->
-            <div class="video-card">
-                <div class="video-frame">
-                    <iframe src="https://www.youtube.com/embed/3T0sn7nKZYk" title="Screw Gauge" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Screw Gauge Problems</h3>
-                    <p>Mastering error analysis criteria effortlessly.</p>
-                </div>
-            </div>
+        <div class="video-grid" id="video-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-bottom: 5rem;">
+            <!-- Videos will be populated by script -->
         </div>
 
-        <section class="cta-section">
-            <h2>Want Direct Coaching from Bhaskar Sir?</h2>
-            <p>Get exclusive batches, personal doubt assistance, and custom mock tests.</p>
-            <a href="https://wa.me/919692792825?text=Hello%20Bhaskar%20Sir%2C%20I%20want%20direct%20guidance." class="btn-whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> Chat on WhatsApp Now
+        <div class="cta-section" style="background: var(--dark); color: white; padding: 4rem 2rem; border-radius: 24px; text-align: center; margin-bottom: 5rem;">
+            <h2>Master Your Concepts with Bhaskar Sir</h2>
+            <p>Join our premium batches for complete course coverage and personalized guidance.</p>
+            <a href="https://wa.me/919692792825" class="btn-primary" target="_blank" style="background: #25D366; border: none; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
             </a>
-        </section>
+        </div>
     </main>
 
-    <script>lucide.createIcons();</script>
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+    <script src="components.js"></script>
+    <script>
+        // 16 Video Lectures Master Array
+        const videos = [
+            { id: "hpkkCPmTKgg", title: "Aeroplane Wind Problem", desc: "Advanced physics tricks to solve relative velocity equations." },
+            { id: "6IGsBm2oS5I", title: "Rain Man Problem", desc: "Vector representation shortcuts for quick calculation." },
+            { id: "_Vbkwmf-Po4", title: "Vernier Caliper Concepts", desc: "Understand zero errors and least count methodology." },
+            { id: "3T0sn7nKZYk", title: "Screw Gauge Problems", desc: "Mastering error analysis criteria effortlessly." },
+            { id: "JgitBj-KH48", title: "Thermodynamics", desc: "Important Graphical Problems evaluated step-by-step." },
+            { id: "S3KaE_pL3IY", title: "Gravitation Formulas", desc: "Review key planetary motion parameters cleanly." },
+            { id: "-I4uujiFqoM", title: "Zener Diode Circuits", desc: "Perfect mapping sequences for quick review." },
+            { id: "XeXVEVXXbDQ", title: "Resistance & Capacitance", desc: "Derive equivalent values confidently." },
+            { id: "UVf7Hw0JGw8", title: "Equivalent Resistance P6", desc: "Equivalent resistance problems class 12 shortcuts." },
+            { id: "HCZ3_pXfSHo", title: "Equivalent Resistance P5", desc: "Equivalent resistance tricks for standard networks." },
+            { id: "V-zyxbpbHUg", title: "Equivalent Resistance P4", desc: "Simplifying bridging and parallel connections." },
+            { id: "UaZ4u-gxQAE", title: "Equivalent Resistance P44", desc: "Tough configurations cracked effortlessly." },
+            { id: "wrpJiNTQyuc", title: "Equivalent Resistance P3", desc: "Symmetry principles applied to circuits." },
+            { id: "ovYgJsdEaXk", title: "LC Oscillations", desc: "Ideal energy distribution analysis." },
+            { id: "nvf4YlXQ79E", title: "Discharging of Capacitor", desc: "Derive exponential decay boundaries." },
+            { id: "ct2LHL7IEFA", title: "Charging of Capacitor", desc: "RC time constant derivation steps." }
+        ];
+
+        const grid = document.getElementById('video-grid');
+        
+        videos.forEach(v => {
+            const card = document.createElement('div');
+            card.className = 'video-card glass';
+            card.innerHTML = `
+                <div class="video-frame" style="position: relative; width: 100%; padding-top: 56.25%;">
+                    <iframe src="https://www.youtube.com/embed/${v.id}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 20px 20px 0 0;" title="${v.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="video-info" style="padding: 1.5rem;">
+                    <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">${v.title}</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem;">${v.desc}</p>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+        
+        lucide.createIcons();
+    </script>
 </body>
 </html>

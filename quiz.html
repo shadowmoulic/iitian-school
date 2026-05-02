@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JEE & NEET Mock Test | IITian School</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="https://demo-work-alpha.vercel.app/iitianschool/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         .quiz-container {
             max-width: 800px;
@@ -120,12 +121,7 @@
 </head>
 
 <body>
-    <nav class="scrolled">
-        <div class="container nav-content">
-            <a href="index.html" class="logo">IITian<span>school</span></a>
-            <div class="timer" id="timer">30:00</div>
-        </div>
-    </nav>
+    <div id="nav-placeholder"></div>
 
     <div class="quiz-container glass" id="quiz-box">
         <div class="progress-bar">
@@ -170,6 +166,8 @@
         </div>
         <a href="index.html" class="btn-primary">Back to Home</a>
     </div>
+
+    <div id="footer-placeholder"></div>
 
     <script>
         const quizData = [
@@ -301,6 +299,8 @@
 
         loadQuestion();
     </script>
+    <script src="script.js"></script>
+    <script src="components.js"></script>
 </body>
 
 </html>
