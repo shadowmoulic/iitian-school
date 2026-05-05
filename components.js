@@ -43,6 +43,10 @@ function injectNavbar(base, currentPath) {
                 <a href="${base}/videos" class="${isVideos ? 'active' : ''}">Videos</a>
                 <a href="${base}/#tests">Free Tests</a>
                 <a href="${base}/#apps">Mobile App</a>
+                <a href="#" class="mobile-only login-link">Login / Sign Up</a>
+            </div>
+            <div class="nav-auth">
+                <a href="#" class="btn-primary login-btn">Login / Sign Up</a>
             </div>
             <div class="mobile-menu-btn">
                 <i class="fa-solid fa-bars"></i>

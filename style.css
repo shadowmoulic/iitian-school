@@ -144,6 +144,20 @@ nav.scrolled {
     width: 100%;
 }
 
+.mobile-menu-btn {
+    display: none;
+}
+
+.login-btn {
+    padding: 0.7rem 1.6rem !important;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.mobile-only {
+    display: none;
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
@@ -939,6 +953,14 @@ footer {
         display: block !important;
         font-size: 1.8rem;
         cursor: pointer;
+    }
+
+    .nav-auth {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
     }
 
     .nav-links {
